@@ -9,10 +9,13 @@ public class CannonController : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float power;
-    [SerializeField] private int points;
-    [SerializeField] private int timeBonus;
+    [SerializeField] private readonly int points;
+    [SerializeField] private readonly int timeBonus;
 
     protected bool IsTurning { get => isTurning; }
+    public int Points { get => points; }
+    public int TimeBonus { get => timeBonus; }
+    public bool IsVisited { get => isVisited; }
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +41,7 @@ public class CannonController : MonoBehaviour
         if (otherGameObject.CompareTag("Player"))
         {
             PlayerController playerController = otherGameObject.GetComponent<PlayerController>();
-            playerController.OnCannonEnter(gameObject, isVisited ? 0 : points, isVisited ? 0 : timeBonus);
+            playerController.OnCannonEnter(gameObject);
             isTurning = true;
             isVisited = true;
         }
@@ -49,7 +52,7 @@ public class CannonController : MonoBehaviour
         // GetComponent<AudioSource>().Play();
         player.transform.position = gameObject.transform.position + gameObject.transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
-        player.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * this.power);
+        player.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * this.power * 100);
         isTurning = false;
     }
 
