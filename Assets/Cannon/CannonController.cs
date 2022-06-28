@@ -12,6 +12,9 @@ public class CannonController : MonoBehaviour
     [SerializeField] private readonly int points;
     [SerializeField] private readonly int timeBonus;
 
+    private List<Vector3> predictionPoints = new List<Vector3>();
+    private GameObject player;
+
     protected bool IsTurning { get => isTurning; }
     public int Points { get => points; }
     public int TimeBonus { get => timeBonus; }
@@ -32,7 +35,15 @@ public class CannonController : MonoBehaviour
         if(isTurning)
         {
             transform.Rotate(Vector3.forward * speed);
+
+            UpdatePredictionPoints();
         }
+    }
+
+    private void UpdatePredictionPoints()
+    {
+        predictionPoints = ShootingPrediction.Instance.GetPredictionPoints(transform.position + transform.up * 2, transform.up, 
+            ((power * 100) / player.GetComponent<Rigidbody>().mass) * Time.fixedDeltaTime);
     }
 
     void OnTriggerEnter(Collider otherCollider)
@@ -40,6 +51,7 @@ public class CannonController : MonoBehaviour
         GameObject otherGameObject = otherCollider.gameObject;
         if (otherGameObject.CompareTag("Player"))
         {
+            player = otherGameObject;
             PlayerController playerController = otherGameObject.GetComponent<PlayerController>();
             playerController.OnCannonEnter(gameObject);
             isTurning = true;
@@ -50,10 +62,21 @@ public class CannonController : MonoBehaviour
     public void Shoot(GameObject player)
     {
         // GetComponent<AudioSource>().Play();
-        player.transform.position = gameObject.transform.position + gameObject.transform.up * 2;
+        player.transform.position = transform.position + transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
-        player.GetComponent<Rigidbody>().AddForce(gameObject.transform.up * this.power * 100);
+        player.GetComponent<Rigidbody>().AddForce(transform.up * power * 100);
         isTurning = false;
+    }
+
+    private void OnDrawGizmos()
+    {;
+        if (predictionPoints.Count == 0)
+            return;
+        Gizmos.color = Color.blue;
+        foreach (Vector3 predictionPoint in predictionPoints)
+        {
+            Gizmos.DrawSphere(predictionPoint, .25f);
+        }
     }
 
 
