@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private MeshRenderer meshRenderer;
 
     public int Points { get => points; }
+    public GameObject CurrentCannon { get => currentCannon; set => currentCannon = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(InputController.SHOOT))
             {
-                currentCannon.GetComponent<CannonController>().Shoot(gameObject);
+                currentCannon.GetComponent<CannonController>().Shoot();
             }
         }
     }

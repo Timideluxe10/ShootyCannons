@@ -6,7 +6,7 @@ public class ShootingPrediction
 {
     private static ShootingPrediction instance;
 
-    private readonly float timeStepInterval = 0.2f;
+    private readonly float timeStepInterval = 0.1f;
     private readonly int numberOfPredictionPoints = 15;
 
     private ShootingPrediction() { }
@@ -23,8 +23,30 @@ public class ShootingPrediction
             positionOfPrediction.y += Physics.gravity.y / 2 * Mathf.Pow(t * timeStepInterval, 2);
 
             predictionPoints.Add(positionOfPrediction);
+        }
 
-            // TODO: check for Collision (cannon at prediction position) and react accordingly.
+
+        // Check for Collision of the trajectory with another Cannon with help of a raycast (not optimal). If another Cannon is found, current cannon shoots.
+        // TODO: clean that mess up!
+
+        RaycastHit raycastHit;
+        for(int i = 0; i < predictionPoints.Count - 1; ++i)
+        {
+            Vector3 start = predictionPoints[i];
+            Vector3 direction = predictionPoints[i + 1] - start;
+            if(Physics.Raycast(start, direction, out raycastHit, 1f))
+            {
+                Debug.DrawLine(start, raycastHit.point);
+
+                GameObject hitObject = raycastHit.collider.gameObject;
+                if(hitObject.CompareTag("Cannon"))
+                {
+                    Debug.Log("Found cannon!");
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().CurrentCannon.GetComponent<CannonController>().Shoot();
+                    return null;
+                }
+            }
+                
         }
 
         return predictionPoints;

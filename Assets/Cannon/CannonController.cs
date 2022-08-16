@@ -19,6 +19,7 @@ public class CannonController : MonoBehaviour
     public int Points { get => points; }
     public int TimeBonus { get => timeBonus; }
     public bool IsVisited { get => isVisited; }
+    public GameObject Player { get => player; }
 
     // Start is called before the first frame update
     void Start()
@@ -59,23 +60,25 @@ public class CannonController : MonoBehaviour
         }
     }
 
-    public void Shoot(GameObject player)
+    public void Shoot()
     {
+        if (player == null)
+            return;
         // GetComponent<AudioSource>().Play();
+        isTurning = false;
         player.transform.position = transform.position + transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
         player.GetComponent<Rigidbody>().AddForce(transform.up * power * 100);
-        isTurning = false;
     }
 
     private void OnDrawGizmos()
-    {;
-        if (predictionPoints.Count == 0)
+    {
+        if (predictionPoints == null || predictionPoints.Count == 0 || !isTurning)
             return;
         Gizmos.color = Color.blue;
         foreach (Vector3 predictionPoint in predictionPoints)
         {
-            Gizmos.DrawSphere(predictionPoint, .25f);
+            Gizmos.DrawSphere(predictionPoint, .1f);
         }
     }
 
