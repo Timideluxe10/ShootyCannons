@@ -164,6 +164,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9089192171886833799, guid: 54c20e576f14728448de7dd756408a43, type: 3}
   m_PrefabInstance: {fileID: 9089192171566591599}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &238515982 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9089192171886833798, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+  m_PrefabInstance: {fileID: 9089192171566591599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &238515983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +904,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 238515982}
     m_Modifications:
     - target: {fileID: 3540716313166578536, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_Name
@@ -907,7 +912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -927,15 +932,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -948,14 +953,6 @@ PrefabInstance:
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
-      propertyPath: doAutoshoot
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
-      propertyPath: minTurnTime
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
