@@ -6,47 +6,23 @@ public class ShootingPrediction
 {
     private static ShootingPrediction instance;
 
-    private readonly float timeStepInterval = 0.1f;
-    private readonly int numberOfPredictionPoints = 15;
+    private readonly float timeStepInterval = 0.1f; /* Specifies the timely distance between two trajectory points. */
+    private readonly int numberOfTrajectoryPoints = 15; /* Specifies the number of total trajectory points to be calculated. */
 
     private ShootingPrediction() { }
 
-    public static ShootingPrediction Instance { get => instance == null ? (instance = new ShootingPrediction()) : instance; }
+    public static ShootingPrediction Instance { get => instance == null ? (instance = new ShootingPrediction()) : instance; } /* Singleton instance call. */
 
-    public List<Vector3> GetPredictionPoints(Vector3 startPosition, Vector3 launchDirection, float startVelocity)
+    public List<Vector3> GetTrajectoryPoints(Vector3 startPosition, Vector3 launchDirection, float startVelocity)
     {
         List<Vector3> predictionPoints = new List<Vector3>();
 
-        for(int t = 1; t <= numberOfPredictionPoints; ++t)
+        for(int t = 1; t <= numberOfTrajectoryPoints; ++t)
         {
             Vector3 positionOfPrediction = startPosition + launchDirection * startVelocity * t * timeStepInterval;
             positionOfPrediction.y += Physics.gravity.y / 2 * Mathf.Pow(t * timeStepInterval, 2);
 
             predictionPoints.Add(positionOfPrediction);
-        }
-
-
-        // Check for Collision of the trajectory with another Cannon with help of a raycast (not optimal). If another Cannon is found, current cannon shoots.
-        // TODO: clean that mess up!
-
-        RaycastHit raycastHit;
-        for(int i = 0; i < predictionPoints.Count - 1; ++i)
-        {
-            Vector3 start = predictionPoints[i];
-            Vector3 direction = predictionPoints[i + 1] - start;
-            if(Physics.Raycast(start, direction, out raycastHit, 1f))
-            {
-                Debug.DrawLine(start, raycastHit.point);
-
-                GameObject hitObject = raycastHit.collider.gameObject;
-                if(hitObject.CompareTag("Cannon"))
-                {
-                    Debug.Log("Found cannon!");
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().CurrentCannon.GetComponent<CannonController>().Shoot();
-                    return null;
-                }
-            }
-                
         }
 
         return predictionPoints;
