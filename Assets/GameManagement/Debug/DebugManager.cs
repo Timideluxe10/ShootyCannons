@@ -34,27 +34,29 @@ public class DebugManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (drawShootingTrajectory)
+        GameObject currentCannon = playerController.CurrentCannon;
+
+        if(currentCannon != null)
         {
-            GameObject currentCannon = playerController.CurrentCannon;
-            if (currentCannon != null )
+            CannonController currentCannonController = currentCannon.GetComponent<CannonController>();
+            List<Vector3> trajectoryPoints = CreateTrajectoryPoints(currentCannon, currentCannonController);
+
+            if (drawShootingTrajectory)
             {
-                CannonController currentCannonController = currentCannon.GetComponent<CannonController>();
-                List<Vector3> trajectoryPoints = CreateTrajectoryPoints(currentCannon, currentCannonController);
-                DeleteOldTrajectoryPoints();
-                DrawTrajectoryPoints(trajectoryPoints);
+                DeleteOldTrajectorySpheres();
+                DrawTrajectorySpheres(trajectoryPoints);
+            }
 
-                if (doAutoshoot)
+            if (doAutoshoot)
+            {
+                autoshootTimer -= Time.fixedDeltaTime;
+                if (autoshootTimer <= 0f && CheckForShootingTarget(trajectoryPoints, currentCannon, currentCannonController))
                 {
-                    autoshootTimer -= Time.fixedDeltaTime;
-                    if(autoshootTimer <= 0f && CheckForShootingTarget(trajectoryPoints, currentCannon, currentCannonController))
-                    {
-                        currentCannonController.Shoot();
-                        autoshootTimer = minTurnTime;
-                    }
-
+                    currentCannonController.Shoot();
+                    autoshootTimer = minTurnTime;
                 }
             }
+
         }
     }
 
@@ -68,7 +70,7 @@ public class DebugManager : MonoBehaviour
         return trajectoryPoints;
     }
 
-    // Return true if a target is found on current trajectory which is different from the current cannon, false otherwise.
+    // Return true if a target is found on current trajectory (cannon which is not yet visited), false otherwise.
     private bool CheckForShootingTarget(List<Vector3> trajectoryPoints, GameObject currentCannon, CannonController currentCannonController)
     {
         RaycastHit raycastHit;
@@ -76,10 +78,11 @@ public class DebugManager : MonoBehaviour
         {
             Vector3 start = trajectoryPoints[i];
             Vector3 direction = trajectoryPoints[i + 1] - start;
+            Debug.DrawRay(start, direction, Color.blue, .5f); /* can be removed (but looks epic if Gizmos are on) */
             if (Physics.Raycast(start, direction, out raycastHit, 1f))
             {
                 GameObject hitObject = raycastHit.collider.gameObject;
-                if (hitObject.CompareTag("Cannon") && hitObject != currentCannon /* && !hitObject.GetComponent<CannonController>().Visited */)
+                if (hitObject.CompareTag("Cannon") && !hitObject.GetComponent<CannonController>().IsVisited)
                 {
                     return true;
                 }
@@ -88,7 +91,7 @@ public class DebugManager : MonoBehaviour
         return false;
     }
 
-    private void DeleteOldTrajectoryPoints()
+    private void DeleteOldTrajectorySpheres()
     {
         foreach(GameObject sphere in trajectorySpheres)
         {
@@ -97,7 +100,7 @@ public class DebugManager : MonoBehaviour
         trajectorySpheres = new List<GameObject>();
     }
 
-    private void DrawTrajectoryPoints(List<Vector3> points)
+    private void DrawTrajectorySpheres(List<Vector3> points)
     {
         foreach(Vector3 point in points)
         {
