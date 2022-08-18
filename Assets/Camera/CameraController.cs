@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private int distance;
+    [SerializeField] private int zDistance;
+    [SerializeField] private int xOffset;
     [SerializeField] float smoothness;
 
     private GameObject player;
@@ -23,7 +24,7 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, 
-            player.transform.position - new Vector3(0, 0, this.distance),
+            player.transform.position - new Vector3(-xOffset, 0, zDistance),
             this.smoothness * Time.deltaTime);
     }
 }

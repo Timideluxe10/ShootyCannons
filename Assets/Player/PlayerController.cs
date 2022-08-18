@@ -5,22 +5,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float startingTime;
-
     private int points;
-    private float time;
     private GameObject currentCannon;
+    private GameObject lastCannon;
 
     private new Rigidbody rigidbody;
     private MeshRenderer meshRenderer;
 
     public int Points { get => points; }
-    public GameObject CurrentCannon { get => currentCannon; set => currentCannon = value; }
+    public GameObject CurrentCannon { get => currentCannon; }
+    public GameObject LastCannon { get => lastCannon; }
 
     // Start is called before the first frame update
     void Start()
     {
-        time = startingTime;
         rigidbody = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
     }
@@ -46,13 +44,6 @@ public class PlayerController : MonoBehaviour
 
         // Update variables.
         currentCannon = cannon;
-        CannonController cannonController = cannon.GetComponent<CannonController>();
-        if(!cannonController.IsVisited)
-        {
-            points += cannonController.Points;
-            time += cannonController.TimeBonus;
-        }
-
     }
 
     private void SetActive(bool active)
@@ -65,6 +56,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnCannonExit()
     {
+        lastCannon = currentCannon;
         currentCannon = null;
         SetActive(true);
     }

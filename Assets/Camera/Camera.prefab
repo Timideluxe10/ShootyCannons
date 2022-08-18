@@ -96,5 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b463c4198144a204186d68c646c6d53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 15
-  smoothness: 1
+  zDistance: 15
+  xOffset: 10
+  smoothness: 0.7

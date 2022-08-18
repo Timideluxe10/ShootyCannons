@@ -11,17 +11,21 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2372307866721508104, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
+      propertyPath: timeBonus
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 40.25
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33,15 +37,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508105, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372307866721508106, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_Name
-      value: Cannon
+      value: FastCannon (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2372307867325706292, guid: cdc9570dce9bd7e458ed6a58d6336c38, type: 3}
       propertyPath: m_Materials.Array.data[0]

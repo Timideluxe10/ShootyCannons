@@ -9,14 +9,12 @@ public class CannonController : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float power;
-    [SerializeField] private readonly int points;
-    [SerializeField] private readonly int timeBonus;
+    [SerializeField] private float timeBonus;
 
     private GameObject player;
 
     public bool IsTurning { get => isTurning; }
-    public int Points { get => points; }
-    public int TimeBonus { get => timeBonus; }
+    public float TimeBonus { get => timeBonus; }
     public bool IsVisited { get => isVisited; }
     public GameObject Player { get => player; }
     public float Power { get => power; }
@@ -48,6 +46,8 @@ public class CannonController : MonoBehaviour
             PlayerController playerController = otherGameObject.GetComponent<PlayerController>();
             playerController.OnCannonEnter(gameObject);
             isTurning = true;
+            if (!isVisited)
+                GameController.Instance.ProcessBonusTime(timeBonus);
             isVisited = true;
         }
     }
