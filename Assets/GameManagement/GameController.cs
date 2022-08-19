@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject pauseManagement;
     private PauseManager pauseManager;
 
+    [SerializeField] private GameObject coinManagement;
+    private CoinManager coinManager;
+
     private GameController() { instance = this; }
     public static GameController Instance { get => instance == null ? (instance = new GameController()) : instance; }
 
@@ -58,6 +61,7 @@ public class GameController : MonoBehaviour
         timeManager = timeManagement.GetComponent<TimeManager>();
         gameOverManager = gameOverManagement.GetComponent<GameOverManager>();
         pauseManager = pauseManagement.GetComponent<PauseManager>();
+        coinManager = coinManagement.GetComponent<CoinManager>();
     }
 
     // Update is called once per frame
@@ -85,5 +89,10 @@ public class GameController : MonoBehaviour
     public void PauseButtonPressed()
     {
         pauseManager.PauseButtonPressed();
+    }
+
+    public void CoinCollected(int value)
+    {
+        coinManager.CoinCollected(value);
     }
 }
