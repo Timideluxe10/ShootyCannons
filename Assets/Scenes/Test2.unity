@@ -632,6 +632,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2762399408350426955, guid: 3e2cff8f557851f4b99778b5c619c713, type: 3}
   m_PrefabInstance: {fileID: 1255565934}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1538210121 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 156214092616148340, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+  m_PrefabInstance: {fileID: 1600091317936143588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1572206878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -862,6 +873,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477446693316774178, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_Name
+      value: PauseText
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1949729582}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1600091316991581255, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -950,6 +997,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6457991032419330730, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+      propertyPath: m_Name
+      value: PauseButton
+      objectReference: {fileID: 0}
     - target: {fileID: 6575780050308829540, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -978,10 +1029,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1723988503}
-    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: doDebug
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1518168626, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: pauseText
+      value: 
+      objectReference: {fileID: 1538210121}
     - target: {fileID: 6423746520941953929, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: scoreText
       value: 

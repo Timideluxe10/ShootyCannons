@@ -26,13 +26,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Shooting
-        if(currentCannon != null)
+    }
+
+    public void TryShoot()
+    {
+        if (currentCannon != null)
         {
-            if (Input.GetKeyDown(InputController.SHOOT))
-            {
-                currentCannon.GetComponent<CannonController>().Shoot();
-            }
+            currentCannon.GetComponent<CannonController>().Shoot();
         }
     }
 
