@@ -13,7 +13,10 @@ public class GameController : MonoBehaviour
 
     private static GameController instance;
 
-    [SerializeField] private GameObject player;
+    private static readonly Vector3 Position_Player_Spawn = new Vector3(0, 3, 0);
+
+    [SerializeField] private GameObject playerTemplate;
+    private GameObject player;
 
     [SerializeField] private GameObject debug;
     [SerializeField] private bool doDebug;
@@ -36,6 +39,11 @@ public class GameController : MonoBehaviour
     public PlayerController GetPlayerController()
     {
         return player.GetComponent<PlayerController>();
+    }
+
+    private void Awake()
+    {
+        player = GameObject.Instantiate(playerTemplate, Position_Player_Spawn, Quaternion.identity);
     }
 
     // Start is called before the first frame update

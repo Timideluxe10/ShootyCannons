@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This class is responsible for dynamic cannon generation.  */
 public class DynamicGenerationManager : MonoBehaviour
 {
     [SerializeField] private GameObject startCannon;
-    // [SerializeField] private GameObject cannonTemplate;
 
     [SerializeField] private GameObject[] cannonTemplates;
     [SerializeField] private int[] cannonProbabilityTickets;
@@ -18,21 +18,68 @@ public class DynamicGenerationManager : MonoBehaviour
     private GameObject[] cannonBuffer;
 
     private GameObject player;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         cannonBuffer = new GameObject[cannonBufferSize];
         player = GameController.Instance.Player;
+        playerController = player.GetComponent<PlayerController>();
         GenerateInitialCannons();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(playerController.CurrentCannon != null)
+        {
+            int numberOfCannonsToGenerate = calculateNumberOfCannonsToGenerate(); /* This is important because it may be possible to skip one or more cannons. */
+            if(numberOfCannonsToGenerate > 0)
+            {
+                for(int i = 0; i < numberOfCannonsToGenerate; ++i)
+                {
+                    GameObject lastCannon = cannonBuffer[cannonBuffer.Length - 1];
+                    CannonController cannonController = lastCannon.GetComponent<CannonController>();
+                    List<Vector3> trajectoryPoints = CreateTrajectoryPointsAtRandomAngle(lastCannon, cannonController);
+                    ShiftCannonBuffer();
+                    cannonBuffer[cannonBuffer.Length - 1] = GenerateNewCannon(trajectoryPoints);
+                }
+            }
+        }
     }
 
+    private void ShiftCannonBuffer()
+    {
+        GameObject.Destroy(cannonBuffer[0]);
+        for(int i = 0; i < cannonBuffer.Length - 1; ++i)
+        {
+            cannonBuffer[i] = cannonBuffer[i + 1];
+        }
+    }
+
+    // Note: This will return 0 or 1 almost exclusively, except for the case if the player skipped at least one cannon in the buffer.
+    private int calculateNumberOfCannonsToGenerate()
+    {
+        int indexFromWhichToGenerate = cannonBufferSize / 2 - 1;
+        int indexOfCurrentCannon = GetIndexOfCurrentCannonInBuffer();
+        int numberOfCannonsToGenerate = indexOfCurrentCannon - indexFromWhichToGenerate;
+
+        return numberOfCannonsToGenerate < 0 ? 0 : numberOfCannonsToGenerate;
+    }
+
+    private int GetIndexOfCurrentCannonInBuffer()
+    {
+        GameObject currentCannon = playerController.CurrentCannon;
+        for(int i = 0; i < cannonBuffer.Length; ++i)
+        {
+            if (cannonBuffer[i] == currentCannon)
+                return i;
+        }
+        return -1; /* Should never happen. */
+    }
+
+    // Completely fill cannon buffer with randomly generated cannons (first cannon in buffer is start cannon)
     private void GenerateInitialCannons()
     {
         cannonBuffer[0] = startCannon;
@@ -41,12 +88,11 @@ public class DynamicGenerationManager : MonoBehaviour
             GameObject cannon = cannonBuffer[i - 1];
             CannonController cannonController = cannon.GetComponent<CannonController>();
             List<Vector3> trajectoryPoints = CreateTrajectoryPointsAtRandomAngle(cannon, cannonController);
-            DrawTrajectorySpheres(trajectoryPoints);
             cannonBuffer[i] = GenerateNewCannon(trajectoryPoints);
         }
     }
 
-    // Use cannon and its controller to get necessary parameters for the trajectory points delivered by ShootingPrediction script.
+    // Use cannon and its controller to get necessary parameters for the trajectory points delivered by ShootingPrediction script. Return trajectory points.
     private List<Vector3> CreateTrajectoryPointsAtRandomAngle(GameObject cannon, CannonController cannonController)
     {
         float angle = Random.Range(minAngle, maxAngle);
@@ -59,6 +105,7 @@ public class DynamicGenerationManager : MonoBehaviour
         return trajectoryPoints;
     }
 
+    // Return a random, newly instantiated cannon
     private GameObject GenerateNewCannon(List<Vector3> trajectoryPoints)
     {
         int numberOfTrajectoryPoints = trajectoryPoints.Count;
@@ -69,6 +116,7 @@ public class DynamicGenerationManager : MonoBehaviour
         return newCannon;
     }
 
+    // Return random cannon template (probabilities in cannonProbabilityTickets)
     private GameObject ChooseRandomCannonTemplate()
     {
         int sumTickets = sumProbabilityTickets();
@@ -86,6 +134,7 @@ public class DynamicGenerationManager : MonoBehaviour
         return null; /* Should never happen. */
     }
 
+    // Return total number of probability tickets
     private int sumProbabilityTickets()
     {
         int sum = 0;
@@ -95,17 +144,5 @@ public class DynamicGenerationManager : MonoBehaviour
         }
         return sum;
     }
-
-    private void DrawTrajectorySpheres(List<Vector3> points)
-    {
-        foreach (Vector3 point in points)
-        {
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = point;
-            sphere.transform.localScale = new Vector3(.1f, .1f, .1f);
-            sphere.transform.SetParent(transform);
-        }
-    }
-
 
 }
