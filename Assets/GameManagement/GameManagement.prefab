@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTemplate: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
   debug: {fileID: 3010966200240792217}
-  doDebug: 0
+  doDebug: 1
   timeManagement: {fileID: 9089192171431829343}
   gameOverManagement: {fileID: 8646976934010946986}
   pauseManagement: {fileID: 8682626983056829999}

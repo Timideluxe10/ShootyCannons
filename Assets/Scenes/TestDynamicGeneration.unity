@@ -401,6 +401,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1762186036 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1684334555, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+  m_PrefabInstance: {fileID: 1600091317936143588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1949729582 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
@@ -897,26 +908,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
-    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: doDebug
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: playerTemplate
-      value: 
-      objectReference: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
     - target: {fileID: 1518168626, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: pauseText
       value: 
       objectReference: {fileID: 1538210121}
+    - target: {fileID: 1095100795404498135, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 1762186036}
     - target: {fileID: 6423746520941953929, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1600091317936143589}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doAutoshoot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: gameOverPanel
       value: 
