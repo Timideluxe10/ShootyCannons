@@ -30,13 +30,9 @@ public class DebugManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-
-    private void FixedUpdate()
-    {
         GameObject currentCannon = playerController.CurrentCannon;
 
-        if(currentCannon != null)
+        if (currentCannon != null)
         {
             CannonController currentCannonController = currentCannon.GetComponent<CannonController>();
             List<Vector3> trajectoryPoints = CreateTrajectoryPoints(currentCannon, currentCannonController);
@@ -49,7 +45,7 @@ public class DebugManager : MonoBehaviour
 
             if (doAutoshoot)
             {
-                autoshootTimer -= Time.fixedDeltaTime;
+                autoshootTimer -= Time.deltaTime;
                 if (autoshootTimer <= 0f && CheckForShootingTarget(trajectoryPoints, currentCannon, currentCannonController))
                 {
                     currentCannonController.Shoot();
@@ -58,12 +54,17 @@ public class DebugManager : MonoBehaviour
             }
 
         }
+
+    }
+
+    private void FixedUpdate()
+    {
     }
 
     // Use current cannon and its controller to get necessary parameters for the trajectory points delivered by ShootingPrediction script.
     private List<Vector3> CreateTrajectoryPoints(GameObject currentCannon, CannonController currentCannonController)
     {
-        Vector3 startPosition = currentCannon.transform.position + currentCannon.transform.up * 2 /* - currentCannon.transform.right * .2f  */;
+        Vector3 startPosition = currentCannon.transform.position + currentCannon.transform.up * 2;
         Vector3 launchDirection = currentCannon.transform.up;
         float startVelocity = ((currentCannonController.Power * 100) / player.GetComponent<Rigidbody>().mass) * Time.fixedDeltaTime;
         List<Vector3> trajectoryPoints = ShootingPrediction.Instance.GetTrajectoryPoints(startPosition, launchDirection, startVelocity);
@@ -105,8 +106,8 @@ public class DebugManager : MonoBehaviour
         foreach(Vector3 point in points)
         {
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = point;
             sphere.transform.localScale = new Vector3(.2f, .2f, .2f);
+            sphere.transform.position = point;
             sphere.transform.SetParent(transform);
             trajectorySpheres.Add(sphere);
         }

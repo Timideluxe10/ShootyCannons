@@ -23,11 +23,6 @@ public class PlayerController : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void TryShoot()
     {
         if (currentCannon != null)

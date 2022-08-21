@@ -24,13 +24,9 @@ public class CannonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    }
-
-    private void FixedUpdate()
-    {
-        if(isTurning)
+        if (isTurning)
         {
-            transform.Rotate(Vector3.forward * speed);
+            transform.Rotate(Vector3.forward * speed * 100 * Time.deltaTime);
         }
     }
 

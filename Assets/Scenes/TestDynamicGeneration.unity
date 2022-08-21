@@ -152,7 +152,7 @@ Transform:
   m_Children:
   - {fileID: 2762399407380864293}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251013701 stripped
 GameObject:
@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7089431687020742284, guid: cdf65e48ec44d2a4b8e4105350af58b1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7089431687020742284, guid: cdf65e48ec44d2a4b8e4105350af58b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -920,10 +920,6 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1600091317936143589}
-    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: doAutoshoot
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: gameOverPanel
       value: 
@@ -938,7 +934,7 @@ PrefabInstance:
       objectReference: {fileID: 1609980394}
     - target: {fileID: 9089192171886833798, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9089192171886833798, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: m_LocalPosition.x
