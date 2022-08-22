@@ -12,4 +12,9 @@ public class FastTime : Effect
     {
         GameController.Instance.SetTimeScale(1f);
     }
+
+    public override string GetName()
+    {
+        return "Fast Time";
+    }
 }

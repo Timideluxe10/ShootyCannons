@@ -14,6 +14,10 @@ public class Darkness : Effect
     public override void Stop()
     {
         lightObject.SetActive(true);
+    }
 
+    public override string GetName()
+    {
+        return "Darkness";
     }
 }

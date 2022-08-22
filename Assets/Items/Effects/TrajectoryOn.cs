@@ -12,4 +12,8 @@ public class TrajectoryOn : Effect
     {
         GameController.Instance.SetDrawTrajectory(false);
     }
+    public override string GetName()
+    {
+        return "Draw Trajectory";
+    }
 }

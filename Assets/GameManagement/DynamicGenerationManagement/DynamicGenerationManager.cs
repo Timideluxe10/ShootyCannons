@@ -76,7 +76,7 @@ public class DynamicGenerationManager : MonoBehaviour
         GameObject.Destroy(cannonBuffer[0]);
         if (coinBuffer[0] != null)
             GameObject.Destroy(coinBuffer[0]);
-        if (itemBuffer[0] != null)
+        if (itemBuffer[0] != null && itemBuffer[0].GetComponent<ItemController>() != null && !itemBuffer[0].GetComponent<ItemController>().ProtectFromDestroy)
             GameObject.Destroy(itemBuffer[0]);
 
         for(int i = 0; i < cannonBuffer.Length - 1; ++i)

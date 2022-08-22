@@ -12,7 +12,10 @@ public abstract class ItemController : MonoBehaviour
     private Effect effect;
     private bool isEffectActive = false;
 
+    private bool protectFromDestroy = false;
+
     public float Duration { get => duration; }
+    public bool ProtectFromDestroy { get => protectFromDestroy; set => protectFromDestroy = value; }
 
     // Start is called before the first frame update
     protected void Start()
@@ -22,6 +25,11 @@ public abstract class ItemController : MonoBehaviour
     }
 
     protected abstract Effect SetEffect();
+
+    public string GetEffectName()
+    {
+        return effect.GetName();
+    }
 
     // Update is called once per frame
     protected void Update()
@@ -61,11 +69,12 @@ public abstract class ItemController : MonoBehaviour
     {
         effect.Start();
         isEffectActive = true;
+        protectFromDestroy = true;
     }
 
     public void StopEffect()
     {
         effect.Stop();
-        GameObject.Destroy(this);
+        GameObject.Destroy(gameObject);
     }
 }

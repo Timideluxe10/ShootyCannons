@@ -37,6 +37,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject effectManagement;
     private EffectManager effectManager;
 
+    [SerializeField] private GameObject itemManagement;
+    private ItemManager itemManager;
+
+
     private float timeScaleWhenRunning;
 
     public static GameController Instance { get => instance; }
@@ -78,6 +82,22 @@ public class GameController : MonoBehaviour
         pauseManager = pauseManagement.GetComponent<PauseManager>();
         coinManager = coinManagement.GetComponent<CoinManager>();
         effectManager = effectManagement.GetComponent<EffectManager>();
+        itemManager = itemManagement.GetComponent<ItemManager>();
+    }
+
+    public void CollectableItemCollected(GameObject collectableItem)
+    {
+        itemManager.Collect(collectableItem);
+    }
+
+    public void UseItem()
+    {
+        itemManager.UseItem();
+    }
+
+    public void DiscardItem()
+    {
+        itemManager.DiscardItem();
     }
 
     public void SetDrawTrajectory(bool doDrawTrajectory)

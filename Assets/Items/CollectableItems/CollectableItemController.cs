@@ -6,7 +6,8 @@ public abstract class CollectableItemController : ItemController
 {
     protected override void OnCollect()
     {
-        // TODO: let player collect Item.
+        GameController.Instance.CollectableItemCollected(gameObject);
+        ProtectFromDestroy = true;
     }
 
 }

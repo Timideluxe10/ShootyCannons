@@ -154,6 +154,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &25787731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1600091317911437751, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
+  m_PrefabInstance: {fileID: 1600091317936143588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &251013701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 251013701, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
@@ -454,42 +459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 477446693316774178, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_Name
-      value: PauseText
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1949729582}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseButtonPressed
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 885233269722185889, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1600091316991581255, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -577,10 +550,6 @@ PrefabInstance:
     - target: {fileID: 1600091316991581307, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_Name
       value: GUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6457991032419330730, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
-      propertyPath: m_Name
-      value: PauseButton
       objectReference: {fileID: 0}
     - target: {fileID: 6575780050308829540, guid: 3ff65294f95d8e8449439d9eb3ddd55b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -852,48 +821,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2762399407380864294}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemTemplates.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: itemGenerationProbability
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemTemplates.Array.data[0]
-      value: 
-      objectReference: {fileID: 6755045018084768266, guid: 3dcf6e19b47496d47b725561a73038af, type: 3}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemTemplates.Array.data[1]
-      value: 
-      objectReference: {fileID: 2444262395873506360, guid: 1e18229a0dd1bf7448a8de5691c46a90, type: 3}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemTemplates.Array.data[2]
-      value: 
-      objectReference: {fileID: 7644555992234169245, guid: e5ffe924e18881549a5029ca590705d3, type: 3}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemTemplates.Array.data[3]
-      value: 
-      objectReference: {fileID: 4336190379997078432, guid: a7cea72dde2ee644794008a86e1ea7f5, type: 3}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemProbabilityTickets.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemProbabilityTickets.Array.data[0]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemProbabilityTickets.Array.data[1]
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemProbabilityTickets.Array.data[2]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
-      propertyPath: itemProbabilityTickets.Array.data[3]
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5640070247305594753, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: m_Name
@@ -960,6 +889,10 @@ PrefabInstance:
       propertyPath: pauseText
       value: 
       objectReference: {fileID: 1538210121}
+    - target: {fileID: 574306975425004014, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: itemPanelHolder
+      value: 
+      objectReference: {fileID: 25787731}
     - target: {fileID: 1095100795404498135, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: coinText
       value: 
@@ -968,10 +901,6 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1600091317936143589}
-    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
-      propertyPath: doAutoshoot
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: gameOverPanel
       value: 

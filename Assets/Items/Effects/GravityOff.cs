@@ -16,4 +16,8 @@ public class GravityOff : Effect
     {
         Physics.gravity = normalGravity;
     }
+    public override string GetName()
+    {
+        return "Disable Gravity";
+    }
 }
