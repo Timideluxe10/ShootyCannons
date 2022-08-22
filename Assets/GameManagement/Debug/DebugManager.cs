@@ -57,10 +57,6 @@ public class DebugManager : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-    }
-
     // Use current cannon and its controller to get necessary parameters for the trajectory points delivered by ShootingPrediction script.
     private List<Vector3> CreateTrajectoryPoints(GameObject currentCannon, CannonController currentCannonController)
     {

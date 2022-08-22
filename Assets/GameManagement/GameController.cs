@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     private static GameController instance;
 
     private static readonly Vector3 Position_Player_Spawn = new Vector3(0, 3, 0);
+    private static readonly float Gravity = 15f;
 
     [SerializeField] private GameObject playerTemplate;
     private GameObject player;
@@ -33,11 +34,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject coinManagement;
     private CoinManager coinManager;
 
-    private GameController() { instance = this; }
-    public static GameController Instance { get => instance == null ? (instance = new GameController()) : instance; }
+    [SerializeField] private GameObject effectManagement;
+    private EffectManager effectManager;
+
+    private float timeScaleWhenRunning;
+
+    public static GameController Instance { get => instance; }
 
     public GameObject Player { get => player; }
     public GameState GameState_ { get => gameState; set => gameState = value; }
+    public float TimeScaleWhenRunning { get => timeScaleWhenRunning; }
 
     public PlayerController GetPlayerController()
     {
@@ -46,6 +52,13 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+            Destroy(this.gameObject);
+        else
+            instance = this;
+
+        Physics.gravity = new Vector3(0, -Gravity, 0);
+
         player = GameObject.Instantiate(playerTemplate, Position_Player_Spawn, Quaternion.identity);
     }
 
@@ -55,6 +68,8 @@ public class GameController : MonoBehaviour
         gameState = GameState.RUNNING;
 
         Time.timeScale = 1f;
+        timeScaleWhenRunning = 1f;
+
         if (!doDebug)
             debug.SetActive(false);
 
@@ -62,11 +77,18 @@ public class GameController : MonoBehaviour
         gameOverManager = gameOverManagement.GetComponent<GameOverManager>();
         pauseManager = pauseManagement.GetComponent<PauseManager>();
         coinManager = coinManagement.GetComponent<CoinManager>();
+        effectManager = effectManagement.GetComponent<EffectManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetDrawTrajectory(bool doDrawTrajectory)
     {
+        effectManager.SetDrawTrajectory(doDrawTrajectory);
+    }
+
+    public void SetTimeScale(float timeScale)
+    {
+        Time.timeScale = timeScale;
+        timeScaleWhenRunning = timeScale;
     }
 
     // Gets called when player enters a new cannon to add time.

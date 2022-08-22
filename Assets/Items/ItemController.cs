@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class ItemController : MonoBehaviour
 {
+    private static readonly float Turn_Speed = 2f;
+
     [SerializeField] protected float duration;
     private float durationLeft;
 
@@ -24,6 +26,9 @@ public abstract class ItemController : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+
+        transform.RotateAround(transform.position, Vector3.forward, -Time.deltaTime * 50 * Turn_Speed);
+
         if (isEffectActive)
         {
             durationLeft -= Time.deltaTime;
@@ -39,8 +44,15 @@ public abstract class ItemController : MonoBehaviour
         GameObject otherGameObject = otherCollider.gameObject;
         if (otherGameObject.CompareTag("Player"))
         {
+            Disable();
             OnCollect();
         }
+    }
+
+    private void Disable()
+    {
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 
     protected abstract void OnCollect();

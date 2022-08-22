@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &531393453033103671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581649369440351470}
+  - component: {fileID: 7631893381506458251}
+  m_Layer: 0
+  m_Name: EffectManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581649369440351470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531393453033103671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9089192171886833798}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7631893381506458251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531393453033103671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2602ad2e05ae64f931b3631af63ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1095100795404498135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +160,7 @@ Transform:
   - {fileID: 4512248359800827015}
   - {fileID: 311593945191533036}
   - {fileID: 8634155964685368715}
+  - {fileID: 581649369440351470}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,6 +183,7 @@ MonoBehaviour:
   gameOverManagement: {fileID: 8646976934010946986}
   pauseManagement: {fileID: 8682626983056829999}
   coinManagement: {fileID: 2555921183964031014}
+  effectManagement: {fileID: 531393453033103671}
 --- !u!1001 &1063308997745502612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8134325534049728201, guid: 8ec6cda8624d66d419af4ef3cf26e840, type: 3}
       propertyPath: startingTime
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8134325534049728202, guid: 8ec6cda8624d66d419af4ef3cf26e840, type: 3}
       propertyPath: m_RootOrder
@@ -271,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: doAutoshoot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: drawShootingTrajectory

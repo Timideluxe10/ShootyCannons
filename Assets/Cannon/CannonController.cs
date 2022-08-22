@@ -26,7 +26,7 @@ public class CannonController : MonoBehaviour
     {
         if (isTurning)
         {
-            transform.Rotate(Vector3.forward * speed * 100 * Time.deltaTime);
+            transform.Rotate(Vector3.forward * speed * 50 * Time.deltaTime);
         }
     }
 

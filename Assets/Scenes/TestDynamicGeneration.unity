@@ -851,6 +851,50 @@ PrefabInstance:
       propertyPath: startCannon
       value: 
       objectReference: {fileID: 2762399407380864294}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemGenerationProbability
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[0]
+      value: 
+      objectReference: {fileID: 6755045018084768266, guid: 3dcf6e19b47496d47b725561a73038af, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[1]
+      value: 
+      objectReference: {fileID: 2444262395873506360, guid: 1e18229a0dd1bf7448a8de5691c46a90, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[2]
+      value: 
+      objectReference: {fileID: 7644555992234169245, guid: e5ffe924e18881549a5029ca590705d3, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 4336190379997078432, guid: a7cea72dde2ee644794008a86e1ea7f5, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[0]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[1]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5640070247305594753, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: m_Name
       value: DynamicGenerationManagement
@@ -908,6 +952,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doDebug
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1518168626, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: pauseText
       value: 
@@ -920,6 +968,10 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1600091317936143589}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doAutoshoot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: gameOverPanel
       value: 

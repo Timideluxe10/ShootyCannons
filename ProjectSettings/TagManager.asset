@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cannon
+  - Light
   layers:
   - Default
   - TransparentFX

@@ -40,7 +40,7 @@ public class PauseManager : MonoBehaviour
     public void UnpauseGame()
     {
         pauseText.text = Pause_Symbol;
-        Time.timeScale = 1f;
+        Time.timeScale = GameController.Instance.TimeScaleWhenRunning;
         isPaused = false;
         GameController.Instance.GameState_ = GameController.GameState.RUNNING;
     }
