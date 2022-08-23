@@ -93,6 +93,7 @@ public class ItemManager : MonoBehaviour
         for(int i = collectedItems.Length - 1; i > 0; --i)
         {
             collectedItems[i] = collectedItems[i - 1];
+            collectedItems[i - 1] = null;
         }
     }
 }

@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableRespawnItem : MonoBehaviour
+public class CollectableRespawnItem : CollectableItemController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override Effect SetEffect()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return new Respawn();
     }
 }

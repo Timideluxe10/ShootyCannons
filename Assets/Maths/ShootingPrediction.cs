@@ -15,16 +15,22 @@ public class ShootingPrediction
 
     public List<Vector3> GetTrajectoryPoints(Vector3 startPosition, Vector3 launchDirection, float startVelocity)
     {
+         return GetTrajectoryPointsWithFixedGravity(startPosition, launchDirection, startVelocity, Physics.gravity);
+    }
+
+    public List<Vector3> GetTrajectoryPointsWithFixedGravity(Vector3 startPosition, Vector3 launchDirection, float startVelocity, Vector3 gravity)
+    {
         List<Vector3> predictionPoints = new List<Vector3>();
 
-        for(int t = 1; t <= numberOfTrajectoryPoints; ++t)
+        for (int t = 1; t <= numberOfTrajectoryPoints; ++t)
         {
             Vector3 positionOfPrediction = startPosition + launchDirection * startVelocity * t * timeStepInterval;
-            positionOfPrediction.y += Physics.gravity.y / 2 * Mathf.Pow(t * timeStepInterval, 2);
+            positionOfPrediction.y += gravity.y / 2 * Mathf.Pow(t * timeStepInterval, 2);
 
             predictionPoints.Add(positionOfPrediction);
         }
 
         return predictionPoints;
+
     }
 }

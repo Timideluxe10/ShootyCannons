@@ -36,6 +36,8 @@ public class DynamicGenerationManager : MonoBehaviour
     private GameObject player;
     private PlayerController playerController;
 
+    private Vector3 startingGravity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,11 @@ public class DynamicGenerationManager : MonoBehaviour
 
         player = GameController.Instance.Player;
         playerController = player.GetComponent<PlayerController>();
+
+        startingGravity = Physics.gravity;
+
         GenerateInitialGameObjects();
+
     }
 
     // Update is called once per frame
@@ -132,7 +138,7 @@ public class DynamicGenerationManager : MonoBehaviour
         Vector3 startPosition = cannon.transform.position + launchDirection * 2;
         float startVelocity = ((cannonController.Power * 100) / player.GetComponent<Rigidbody>().mass) * Time.fixedDeltaTime;
 
-        List<Vector3> trajectoryPoints = ShootingPrediction.Instance.GetTrajectoryPoints(startPosition, launchDirection, startVelocity);
+        List<Vector3> trajectoryPoints = ShootingPrediction.Instance.GetTrajectoryPointsWithFixedGravity(startPosition, launchDirection, startVelocity, startingGravity);
         return trajectoryPoints;
     }
 

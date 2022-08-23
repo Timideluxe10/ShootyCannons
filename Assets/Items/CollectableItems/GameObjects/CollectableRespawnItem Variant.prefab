@@ -1,19 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1345751014
+--- !u!114 &7003919033227402413
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942578577301644002}
+  m_GameObject: {fileID: 9075584519239376707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 464a4d77cde8150459e4184f7ad5ec4e, type: 3}
+  m_Script: {fileID: 11500000, guid: b726f0a1e5bb2bf46a998ede1c6e2770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
---- !u!1001 &6809746466507765144
+  duration: 0
+--- !u!1001 &4145155200165840953
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -23,14 +23,14 @@ PrefabInstance:
     - target: {fileID: 4932700225341200228, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dabb04be2e5d68e47b65613b687f0537, type: 2}
+      objectReference: {fileID: 2100000, guid: 68b048ac30c6a7d49a3f2bd211d2e4d8, type: 2}
     - target: {fileID: 4932700225341200230, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4932700225341200230, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.637463
+      value: 4.137463
       objectReference: {fileID: 0}
     - target: {fileID: 4932700225341200230, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_LocalPosition.y
@@ -70,12 +70,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932700225341200250, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_Name
-      value: CollectableGravityOffItem Variant
+      value: CollectableRespawnItem Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
---- !u!1 &1942578577301644002 stripped
+--- !u!1 &9075584519239376707 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4932700225341200250, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
-  m_PrefabInstance: {fileID: 6809746466507765144}
+  m_PrefabInstance: {fileID: 4145155200165840953}
   m_PrefabAsset: {fileID: 0}

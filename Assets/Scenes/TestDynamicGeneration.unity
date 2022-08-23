@@ -821,8 +821,52 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2762399407380864294}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinGenerationProbability
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: itemGenerationProbability
-      value: 1
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[7]
+      value: 
+      objectReference: {fileID: 2665404356538226394, guid: 147f08939f082a04bbaa6cba0d49b00e, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemTemplates.Array.data[8]
+      value: 
+      objectReference: {fileID: 9075584519239376707, guid: ff2a290a956ad254da93c49c1a75d136, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[3]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[6]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[7]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: itemProbabilityTickets.Array.data[8]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5640070247305594753, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: m_Name
