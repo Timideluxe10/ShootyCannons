@@ -21,7 +21,7 @@ public class ItemManager : MonoBehaviour
         activeItems = new List<ItemController>();
 
         itemUIManager = itemUIManagement.GetComponent<ItemUIManager>();
-        itemUIManager.InitialiseItemPanels(maxNumberOfItemsToCollect);
+        itemUIManager.InitialiseCollectedItemsPanel(maxNumberOfItemsToCollect);
     }
 
     public void OnUse(ItemController item)
@@ -41,11 +41,13 @@ public class ItemManager : MonoBehaviour
             toRemove.StopEffect();
         }
         activeItems.Add(item);
+        UpdateActiveItemsUI();
     }
 
     public void OnExpire(ItemController item)
     {
         activeItems.Remove(item);
+        UpdateActiveItemsUI();
     }
 
     // Collect item if there is space. If not, destroy it.
@@ -54,12 +56,17 @@ public class ItemManager : MonoBehaviour
         bool isCollected = Collect(collectableItem.GetComponent<CollectableItemController>());
         if (!isCollected)
             GameObject.Destroy(collectableItem);
-        UpdateUI();
+        UpdateCollectedItemsUI();
     }
 
-    private void UpdateUI()
+    private void UpdateCollectedItemsUI()
     {
         itemUIManager.UpdateCollectedItemsUI(collectedItems);
+    }
+
+    private void UpdateActiveItemsUI()
+    {
+        itemUIManager.UpdateActiveItemsUI(activeItems);
     }
 
     private bool Collect(CollectableItemController item)
@@ -86,7 +93,7 @@ public class ItemManager : MonoBehaviour
         firstItem.StartEffect();
         collectedItems[indexOfFirstItem] = null;
         itemUIManager.UpdateCollectedItemsUI(collectedItems);
-        UpdateUI();
+        UpdateCollectedItemsUI();
     }
 
     public void DiscardItem()
@@ -99,7 +106,7 @@ public class ItemManager : MonoBehaviour
         }
         GameObject.Destroy(lastItem.gameObject);
         ShiftCollectedItemsArray();
-        UpdateUI();
+        UpdateCollectedItemsUI();
     }
 
     private CollectableItemController GetFirstItem(out int indexOfFirstItem)

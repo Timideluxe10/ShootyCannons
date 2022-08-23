@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTemplate: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
   debug: {fileID: 3010966200240792217}
-  doDebug: 1
+  doDebug: 0
   timeManagement: {fileID: 9089192171431829343}
   gameOverManagement: {fileID: 8646976934010946986}
   pauseManagement: {fileID: 8682626983056829999}
@@ -550,6 +550,14 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5905466897076275514, guid: ded83b324892bfa428150b3025f2613e, type: 3}
       propertyPath: itemPanelTemplate
+      value: 
+      objectReference: {fileID: 4446349197447346712, guid: 76d613e28f4d9bd4a8fbf65e53be3719, type: 3}
+    - target: {fileID: 5905466897076275514, guid: ded83b324892bfa428150b3025f2613e, type: 3}
+      propertyPath: activeItemsPanels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905466897076275514, guid: ded83b324892bfa428150b3025f2613e, type: 3}
+      propertyPath: collectableItemsPanelTemplate
       value: 
       objectReference: {fileID: 4446349197447346712, guid: 76d613e28f4d9bd4a8fbf65e53be3719, type: 3}
     - target: {fileID: 7121421553043446625, guid: ded83b324892bfa428150b3025f2613e, type: 3}

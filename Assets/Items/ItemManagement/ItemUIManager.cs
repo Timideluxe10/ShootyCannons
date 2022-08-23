@@ -1,28 +1,54 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ItemUIManager : MonoBehaviour
 {
-    [SerializeField] private GameObject itemPanelTemplate;
-    [SerializeField] private GameObject itemPanelHolder;
+    [Header("Collectable Items UI")]
+    [SerializeField] private GameObject collectableItemsPanelTemplate;
+    [SerializeField] private GameObject collectableItemsPanelHolder;
 
-    private GameObject[] itemPanels;
-    private Text[] effectNameTexts;
+    [Header("Active Items UI")]
+    [SerializeField] private GameObject[] activeItemsPanels;
+    private Slider[] activeItemsSliders;
+    private Text[] activeItemsTexts;
+    private ItemController[] activeItems;
 
-    public void InitialiseItemPanels(int number)
+    private GameObject[] collectableItemsPanels;
+    private Text[] collectableItemsEffectNameTexts;
+
+    private void Start()
     {
-        itemPanels = new GameObject[number];
-        effectNameTexts = new Text[number];
+        activeItemsSliders = new Slider[activeItemsPanels.Length];
+        activeItemsTexts = new Text[activeItemsPanels.Length];
+        activeItems = new ItemController[activeItemsPanels.Length];
+
+        for (int i = 0; i < activeItemsPanels.Length; ++i)
+        {
+            activeItemsPanels[i].SetActive(false);
+            activeItemsSliders[i] = activeItemsPanels[i].GetComponentInChildren<Slider>();
+            activeItemsTexts[i] = activeItemsPanels[i].GetComponentInChildren<Text>();
+        }
+    }
+
+    private void Update()
+    {
+        if(activeItems[0] != null) /* If at least one item is active */
+            UpdateActiveItemsDurationBars();
+    }
+
+    public void InitialiseCollectedItemsPanel(int number)
+    {
+        collectableItemsPanels = new GameObject[number];
+        collectableItemsEffectNameTexts = new Text[number];
 
         for (int i = 0; i < number; ++i)
         {
-            GameObject itemPanel = GameObject.Instantiate(itemPanelTemplate, Vector3.zero, itemPanelTemplate.transform.rotation);
-            itemPanel.transform.SetParent(itemPanelHolder.transform);
+            GameObject itemPanel = GameObject.Instantiate(collectableItemsPanelTemplate, Vector3.zero, collectableItemsPanelTemplate.transform.rotation);
+            itemPanel.transform.SetParent(collectableItemsPanelHolder.transform);
             itemPanel.transform.position = new Vector3(0, -i * 50 + 312, 0);
-            itemPanels[i] = itemPanel;
-            effectNameTexts[i] = itemPanel.GetComponentInChildren<Text>();
+            collectableItemsPanels[i] = itemPanel;
+            collectableItemsEffectNameTexts[i] = itemPanel.GetComponentInChildren<Text>();
         }
 
     }
@@ -30,10 +56,39 @@ public class ItemUIManager : MonoBehaviour
     public void UpdateCollectedItemsUI(CollectableItemController[] collectedItems)
     {
         
-        for (int i = 0; i < itemPanels.Length; ++i)
+        for (int i = 0; i < collectableItemsPanels.Length; ++i)
         {
             CollectableItemController item = collectedItems[i];
-            effectNameTexts[i].text = item == null ? "" : item.GetEffectName();
+            collectableItemsEffectNameTexts[i].text = item == null ? "" : item.GetEffectName();
+        }
+    }
+
+    public void UpdateActiveItemsUI(List<ItemController> activeItems)
+    {
+        int count = 0;
+        foreach(ItemController itemController in activeItems)
+        {
+            if (count >= activeItemsPanels.Length)
+                break;
+            this.activeItems[count] = itemController;
+            activeItemsSliders[count].maxValue = itemController.MaxDuration;
+            activeItemsTexts[count].text = itemController.GetEffectName();
+            activeItemsPanels[count].SetActive(true);
+            ++count;
+        }
+        for(int i = count; i < activeItemsPanels.Length; ++i)
+        {
+            activeItemsPanels[i].SetActive(false);
+        }
+    }
+
+    public void UpdateActiveItemsDurationBars()
+    {
+        for(int i = 0; i < activeItems.Length; ++i)
+        {
+            if (activeItems[i] == null)
+                return;
+            activeItemsSliders[i].value = activeItems[i].DurationLeft;
         }
     }
 }

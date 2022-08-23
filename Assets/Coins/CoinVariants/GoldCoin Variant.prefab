@@ -9,11 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 283638612782925862, guid: c6799fc0d5a3bfa4593863acbd2952e8, type: 3}
       propertyPath: m_Name
-      value: GoldCoin
+      value: GoldCoin Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6741992767894224662, guid: c6799fc0d5a3bfa4593863acbd2952e8, type: 3}
       propertyPath: value
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741992767894224662, guid: c6799fc0d5a3bfa4593863acbd2952e8, type: 3}
+      propertyPath: rotationSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8338560981578471877, guid: c6799fc0d5a3bfa4593863acbd2952e8, type: 3}
       propertyPath: m_Materials.Array.data[0]

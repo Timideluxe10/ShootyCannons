@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class DebugManager : MonoBehaviour
 {
+    [Header("Shooting Trajectory")]
     [SerializeField] private bool drawShootingTrajectory;
     private List<GameObject> trajectorySpheres; /* Stores the spheres of the current trajectory (if it's calculated) to be able to remove them in the next call of FixedUpdate. */
 
+    [Header("Automatic Shooting")]
     [SerializeField] private bool doAutoshoot;
     [SerializeField] private float minTurnTime = .3f; /* The minimum time a cannon has to turn before it can shoot automatically. */
     private float autoshootTimer;
+
+    [Header("Time Scale")]
+    [SerializeField] private bool doScaleTime = false;
+    [SerializeField] private float timeScale = 1f;
 
     private GameObject player;
     private PlayerController playerController;
@@ -25,6 +31,9 @@ public class DebugManager : MonoBehaviour
 
         if (doAutoshoot)
             autoshootTimer = minTurnTime;
+
+        if (doScaleTime)
+            GameController.Instance.SetTimeScale(timeScale);
     }
 
     // Update is called once per frame
@@ -75,8 +84,8 @@ public class DebugManager : MonoBehaviour
         {
             Vector3 start = trajectoryPoints[i];
             Vector3 direction = trajectoryPoints[i + 1] - start;
-            Debug.DrawRay(start, direction, Color.blue, .5f); /* can be removed (but looks epic if Gizmos are on) */
-            if (Physics.Raycast(start, direction, out raycastHit, 1f))
+            Debug.DrawRay(start, direction, Color.blue, direction.magnitude); /* can be removed (but looks epic if Gizmos are on) */
+            if (Physics.Raycast(start, direction, out raycastHit, direction.magnitude))
             {
                 GameObject hitObject = raycastHit.collider.gameObject;
                 if (hitObject.CompareTag("Cannon") && !hitObject.GetComponent<CannonController>().IsVisited)

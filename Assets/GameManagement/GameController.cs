@@ -61,6 +61,9 @@ public class GameController : MonoBehaviour
         else
             instance = this;
 
+        Time.timeScale = 1f;
+        timeScaleWhenRunning = 1f;
+
         Physics.gravity = new Vector3(0, -Gravity, 0);
 
         player = GameObject.Instantiate(playerTemplate, Position_Player_Spawn, Quaternion.identity);
@@ -70,9 +73,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
         gameState = GameState.RUNNING;
-
-        Time.timeScale = 1f;
-        timeScaleWhenRunning = 1f;
 
         if (!doDebug)
             debug.SetActive(false);

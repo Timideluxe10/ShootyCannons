@@ -14,8 +14,9 @@ public abstract class ItemController : MonoBehaviour
 
     private bool protectFromDestroy = false;
 
-    public float Duration { get => duration; }
+    public float MaxDuration { get => duration; }
     public bool ProtectFromDestroy { get => protectFromDestroy; set => protectFromDestroy = value; }
+    public float DurationLeft { get => durationLeft; }
 
     // Start is called before the first frame update
     protected void Start()
