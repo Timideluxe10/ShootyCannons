@@ -11,13 +11,41 @@ public class ItemManager : MonoBehaviour
 
     private CollectableItemController[] collectedItems;
 
+    private List<ItemController> activeItems;
+
     // Start is called before the first frame update
     void Start()
     {
         collectedItems = new CollectableItemController[maxNumberOfItemsToCollect];
 
+        activeItems = new List<ItemController>();
+
         itemUIManager = itemUIManagement.GetComponent<ItemUIManager>();
         itemUIManager.InitialiseItemPanels(maxNumberOfItemsToCollect);
+    }
+
+    public void OnUse(ItemController item)
+    {
+        ItemController toRemove = null;
+        foreach(ItemController activeItem in activeItems)
+        {
+            if(activeItem.GetEffectType() == item.GetEffectType())
+            {
+                toRemove = activeItem;
+                break;
+            }
+        }
+        if(toRemove != null)
+        {
+            activeItems.Remove(toRemove);
+            toRemove.StopEffect();
+        }
+        activeItems.Add(item);
+    }
+
+    public void OnExpire(ItemController item)
+    {
+        activeItems.Remove(item);
     }
 
     // Collect item if there is space. If not, destroy it.

@@ -26,6 +26,11 @@ public abstract class ItemController : MonoBehaviour
 
     protected abstract Effect SetEffect();
 
+    public Effect.EffectType GetEffectType()
+    {
+        return effect.GetEffectType();
+    }
+
     public string GetEffectName()
     {
         return effect.GetName();
@@ -67,6 +72,7 @@ public abstract class ItemController : MonoBehaviour
 
     public void StartEffect()
     {
+        GameController.Instance.OnItemUse(this);
         effect.Start();
         isEffectActive = true;
         protectFromDestroy = true;
@@ -74,6 +80,7 @@ public abstract class ItemController : MonoBehaviour
 
     public void StopEffect()
     {
+        GameController.Instance.OnItemExpire(this);
         effect.Stop();
         GameObject.Destroy(gameObject);
     }

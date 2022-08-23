@@ -22,4 +22,9 @@ public class Respawn : Effect
     {
         return "Respawn";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.INSTANT;
+    }
+
 }

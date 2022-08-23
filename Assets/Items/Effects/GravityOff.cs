@@ -20,4 +20,9 @@ public class GravityOff : Effect
     {
         return "Disable Gravity";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.GRAVITY;
+    }
+
 }

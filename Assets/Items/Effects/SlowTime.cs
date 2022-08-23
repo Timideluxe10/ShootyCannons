@@ -17,4 +17,9 @@ public class SlowTime : Effect
     {
         return "Slow Time";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.TIME;
+    }
+
 }

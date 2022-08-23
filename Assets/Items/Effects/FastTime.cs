@@ -17,4 +17,9 @@ public class FastTime : Effect
     {
         return "Fast Time";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.TIME;
+    }
+
 }

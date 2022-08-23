@@ -11,6 +11,8 @@ public class EffectManager : MonoBehaviour
 
     private List<GameObject> trajectorySpheres;
 
+    // private List<string> activeEffects;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class EffectManager : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
 
         trajectorySpheres = new List<GameObject>();
+
+        // activeEffects = new List<string>();
     }
 
     // Update is called once per frame

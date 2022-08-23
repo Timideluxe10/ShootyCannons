@@ -20,4 +20,9 @@ public class Darkness : Effect
     {
         return "Darkness";
     }
+
+    public override EffectType GetEffectType()
+    {
+        return EffectType.LIGHT;
+    }
 }

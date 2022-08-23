@@ -30,4 +30,9 @@ public class Jump : Effect
     {
         return "Jump";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.INSTANT;
+    }
+
 }

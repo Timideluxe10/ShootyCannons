@@ -90,6 +90,16 @@ public class GameController : MonoBehaviour
         itemManager.Collect(collectableItem);
     }
 
+    public void OnItemUse(ItemController itemController)
+    {
+        itemManager.OnUse(itemController);
+    }
+
+    public void OnItemExpire(ItemController itemController)
+    {
+        itemManager.OnExpire(itemController);
+    }
+
     public void UseItem()
     {
         itemManager.UseItem();

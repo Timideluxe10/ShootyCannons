@@ -16,4 +16,9 @@ public class TrajectoryOn : Effect
     {
         return "Draw Trajectory";
     }
+    public override EffectType GetEffectType()
+    {
+        return EffectType.TRAJECTORY;
+    }
+
 }
