@@ -40,6 +40,7 @@ public class ItemManager : MonoBehaviour
             activeItems.Remove(toRemove);
             toRemove.StopEffect();
         }
+        item.gameObject.transform.SetParent(transform); /* Moves the item in the hierarchy to this component to avoid problems with dynamically destroying items that are still active etc. */
         activeItems.Add(item);
         UpdateActiveItemsUI();
     }
