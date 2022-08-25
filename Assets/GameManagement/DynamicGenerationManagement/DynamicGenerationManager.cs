@@ -28,8 +28,13 @@ public class DynamicGenerationManager : MonoBehaviour
     [SerializeField] private GameObject[] itemTemplates;
     [SerializeField] private int[] itemProbabilityTickets;
 
+    [Header("Room management and probabilities")]
+    [SerializeField] private bool doGenerateRooms = true;
+    [SerializeField] private float roomGenerationProbability;/* Value between 0 (0% chance for room to generate instead of cannon) and 1 (100% chance) */
+    [SerializeField] private GameObject roomManagement;
+    private RoomManager roomManager;
 
-    private GameObject[] cannonBuffer;
+    private GameObject[] cannonAndRoomBuffer;
     private GameObject[] coinBuffer;
     private GameObject[] itemBuffer;
 
@@ -41,7 +46,7 @@ public class DynamicGenerationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cannonBuffer = new GameObject[cannonBufferSize];
+        cannonAndRoomBuffer = new GameObject[cannonBufferSize];
         coinBuffer = new GameObject[cannonBufferSize];
         itemBuffer = new GameObject[cannonBufferSize];
 
@@ -49,6 +54,9 @@ public class DynamicGenerationManager : MonoBehaviour
         playerController = player.GetComponent<PlayerController>();
 
         startingGravity = Physics.gravity;
+
+        roomManager = roomManagement.GetComponent<RoomManager>();
+        roomManager.InitRoomsPerDifficulty();
 
         GenerateInitialGameObjects();
 
@@ -59,16 +67,16 @@ public class DynamicGenerationManager : MonoBehaviour
     {
         if(playerController.CurrentCannon != null)
         {
-            int numberOfCannonsToGenerate = calculateNumberOfCannonsToGenerate(); /* This is important because it may be possible to skip one or more cannons. */
+            int numberOfCannonsToGenerate = calculateNumberOfGenerations(); /* This is important because it may be possible to skip one or more cannons. */
             if(numberOfCannonsToGenerate > 0)
             {
                 for(int i = 0; i < numberOfCannonsToGenerate; ++i)
                 {
-                    GameObject lastCannon = cannonBuffer[cannonBuffer.Length - 1];
+                    GameObject lastCannon = cannonAndRoomBuffer[cannonAndRoomBuffer.Length - 1].GetComponent<Generateable>().GetCannonToGenerateFrom();
                     CannonController cannonController = lastCannon.GetComponent<CannonController>();
                     List<Vector3> trajectoryPoints = CreateTrajectoryPointsAtRandomAngle(lastCannon, cannonController);
                     ShiftBuffers();
-                    cannonBuffer[cannonBuffer.Length - 1] = GenerateNewCannon(trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition);
+                    cannonAndRoomBuffer[cannonAndRoomBuffer.Length - 1] = GenerateNewCannonOrRoom(trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition);
                     coinBuffer[coinBuffer.Length - 1] = TryGenerateCoin(potentialCoinPosition);
                     itemBuffer[itemBuffer.Length - 1] = TryGenerateItem(potentialItemPosition);
                 }
@@ -79,36 +87,36 @@ public class DynamicGenerationManager : MonoBehaviour
     // Shift cannon and coin buffer and destroy gameObjects that leave the buffer.
     private void ShiftBuffers()
     {
-        GameObject.Destroy(cannonBuffer[0]);
+        GameObject.Destroy(cannonAndRoomBuffer[0]);
         if (coinBuffer[0] != null)
             GameObject.Destroy(coinBuffer[0]);
         if (itemBuffer[0] != null && itemBuffer[0].GetComponent<ItemController>() != null && !itemBuffer[0].GetComponent<ItemController>().ProtectFromDestroy)
             GameObject.Destroy(itemBuffer[0]);
 
-        for(int i = 0; i < cannonBuffer.Length - 1; ++i)
+        for(int i = 0; i < cannonAndRoomBuffer.Length - 1; ++i)
         {
-            cannonBuffer[i] = cannonBuffer[i + 1];
+            cannonAndRoomBuffer[i] = cannonAndRoomBuffer[i + 1];
             coinBuffer[i] = coinBuffer[i + 1];
             itemBuffer[i] = itemBuffer[i + 1];
         }
     }
 
     // Note: This will return 0 or 1 almost exclusively, except for the case if the player skipped at least one cannon in the buffer.
-    private int calculateNumberOfCannonsToGenerate()
+    private int calculateNumberOfGenerations()
     {
         int indexFromWhichToGenerate = cannonBufferSize / 2 - 1;
         int indexOfCurrentCannon = GetIndexOfCurrentCannonInBuffer();
-        int numberOfCannonsToGenerate = indexOfCurrentCannon - indexFromWhichToGenerate;
+        int numberOfGenerations = indexOfCurrentCannon - indexFromWhichToGenerate;
 
-        return numberOfCannonsToGenerate < 0 ? 0 : numberOfCannonsToGenerate;
+        return numberOfGenerations < 0 ? 0 : numberOfGenerations;
     }
 
     private int GetIndexOfCurrentCannonInBuffer()
     {
         GameObject currentCannon = playerController.CurrentCannon;
-        for(int i = 0; i < cannonBuffer.Length; ++i)
+        for(int i = 0; i < cannonAndRoomBuffer.Length; ++i)
         {
-            if (cannonBuffer[i] == currentCannon)
+            if (cannonAndRoomBuffer[i].GetComponent<Generateable>().GetCannonToGenerateFrom() == currentCannon)
                 return i;
         }
         return -1; /* Should never happen. */
@@ -117,13 +125,13 @@ public class DynamicGenerationManager : MonoBehaviour
     // Completely fill cannon buffer with randomly generated cannons (first cannon in buffer is start cannon). Generate coins and save them in coinBuffer.
     private void GenerateInitialGameObjects()
     {
-        cannonBuffer[0] = startCannon;
-        for(int i = 1; i < cannonBuffer.Length; ++i)
+        cannonAndRoomBuffer[0] = startCannon;
+        for(int i = 1; i < cannonAndRoomBuffer.Length; ++i)
         {
-            GameObject cannon = cannonBuffer[i - 1];
+            GameObject cannon = cannonAndRoomBuffer[i - 1].GetComponent<Generateable>().GetCannonToGenerateFrom();
             CannonController cannonController = cannon.GetComponent<CannonController>();
             List<Vector3> trajectoryPoints = CreateTrajectoryPointsAtRandomAngle(cannon, cannonController);
-            cannonBuffer[i] = GenerateNewCannon(trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition);
+            cannonAndRoomBuffer[i] = GenerateNewCannonOrRoom(trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition);
             coinBuffer[i] = TryGenerateCoin(potentialCoinPosition);
             itemBuffer[i] = TryGenerateItem(potentialItemPosition);
         }
@@ -143,17 +151,21 @@ public class DynamicGenerationManager : MonoBehaviour
     }
 
     // Return a random, newly instantiated cannon. Fill out parameter "potentialCoinPosition" to save position where a coin could generate.
-    private GameObject GenerateNewCannon(List<Vector3> trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition)
+    private GameObject GenerateNewCannonOrRoom(List<Vector3> trajectoryPoints, out Vector3 potentialCoinPosition, out Vector3 potentialItemPosition)
     {
         int numberOfTrajectoryPoints = trajectoryPoints.Count;
         int randomIndex = Random.Range(numberOfTrajectoryPoints / 2, numberOfTrajectoryPoints);
         Vector3 randomTrajectoryPoint = trajectoryPoints[randomIndex];
-        GameObject cannonTemplate = ChooseRandomTemplate(cannonTemplates, cannonProbabilityTickets);
-        GameObject newCannon = GameObject.Instantiate(cannonTemplate, randomTrajectoryPoint, Quaternion.identity);
-        newCannon.transform.SetParent(transform);
+        GameObject template = null;
+        if(doGenerateRooms && Random.value <= roomGenerationProbability) /* Generate Room instead of single cannon */
+            template = roomManager.ChooseRandomRoom();
+        else /* Generate single cannon */
+            template = ChooseRandomTemplate(cannonTemplates, cannonProbabilityTickets);
+        GameObject generatedObject = GameObject.Instantiate(template, randomTrajectoryPoint, Quaternion.identity);
+        generatedObject.transform.SetParent(transform);
         potentialCoinPosition = trajectoryPoints[randomIndex / 2];
         potentialItemPosition = trajectoryPoints[randomIndex / 2 - 2];
-        return newCannon;
+        return generatedObject;
     }
 
     private GameObject TryGenerateCoin(Vector3 potentialCoinPosition)

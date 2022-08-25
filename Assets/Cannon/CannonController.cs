@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonController : MonoBehaviour
+public class CannonController : MonoBehaviour, Generateable
 {
     [SerializeField] private float speed;
     [SerializeField] private float power;
@@ -56,5 +56,10 @@ public class CannonController : MonoBehaviour
         player.transform.position = transform.position + transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
         player.GetComponent<Rigidbody>().AddForce(transform.up * power * 100);
+    }
+
+    public GameObject GetCannonToGenerateFrom()
+    {
+        return gameObject;
     }
 }
