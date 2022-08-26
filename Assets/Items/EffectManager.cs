@@ -64,6 +64,7 @@ public class EffectManager : MonoBehaviour
             sphere.transform.localScale = new Vector3(.2f, .2f, .2f);
             sphere.transform.position = point;
             sphere.transform.SetParent(transform);
+            sphere.GetComponent<Collider>().enabled = false;
             trajectorySpheres.Add(sphere);
         }
     }
