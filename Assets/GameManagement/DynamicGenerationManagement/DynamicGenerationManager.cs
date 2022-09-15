@@ -43,6 +43,10 @@ public class DynamicGenerationManager : MonoBehaviour
 
     private Vector3 startingGravity;
 
+    /* Getter for probability tickets for difficulty manager. */
+    public int[] CannonProbabilityTickets { get => cannonProbabilityTickets; }
+    public int[] CoinProbabilityTickets { get => coinProbabilityTickets; }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -10,6 +10,9 @@ public class RoomManager : MonoBehaviour
 
     private List<GameObject>[] roomsPerDifficulty;
 
+    /* Getter for difficultyManager. */
+    public int[] DifficultyProbabilityTickets { get => difficultyProbabilityTickets;  }
+
     public void InitRoomsPerDifficulty()
     {
         roomsPerDifficulty = new List<GameObject>[Num_Difficulties];
@@ -28,6 +31,9 @@ public class RoomManager : MonoBehaviour
     {
         /* Choose random difficulty (list of roomTemplates of that difficulty) */
         GameObject[] roomsOfRandomDifficulty = ChooseRandomTemplateList(roomsPerDifficulty, difficultyProbabilityTickets).ToArray();
+
+        if (roomsOfRandomDifficulty.Length == 0)
+            throw new System.InvalidOperationException("No room template exists for the chosen room difficulty.");
 
         /* Choose random room from the list of chosen difficulty */
         int[] probabilityTickets = new int[roomsOfRandomDifficulty.Length];
