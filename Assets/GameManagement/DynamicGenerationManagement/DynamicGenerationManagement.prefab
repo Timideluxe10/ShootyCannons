@@ -54,12 +54,12 @@ MonoBehaviour:
   - {fileID: 3665407251020385379, guid: dc90705814d82004891f1b17c9adca21, type: 3}
   cannonProbabilityTickets: 0a000000080000000300000003000000
   doGenerateCoins: 1
-  coinGenerationProbability: 0.7
+  coinGenerationProbability: 0.33
   coinTemplates:
   - {fileID: 325265295007973551, guid: f62221d4e3352414ca5df5eb56da7542, type: 3}
   - {fileID: 6349536175789398845, guid: 8b52510ed0cb5b045b963c63bc3dba32, type: 3}
   - {fileID: 7137383817464452343, guid: 166acff98b1cf6d49a231f5ae92255dd, type: 3}
-  coinProbabilityTickets: 140000000400000001000000
+  coinProbabilityTickets: 280000000800000002000000
   doGenerateItems: 1
   itemGenerationProbability: 0.2
   itemTemplates:
@@ -70,4 +70,9 @@ MonoBehaviour:
   - {fileID: 6445941227382927483, guid: 80f6b460256edba499e006f47542c202, type: 3}
   - {fileID: 1942578577301644002, guid: d8b3f5ad3c3ff0a4d87e9a5215a2ee49, type: 3}
   - {fileID: 4310487108378936581, guid: 02f5f79423db4284e89fa50175ba9869, type: 3}
-  itemProbabilityTickets: 0a000000080000000300000005000000140000001400000014000000
+  - {fileID: 2665404356538226394, guid: 147f08939f082a04bbaa6cba0d49b00e, type: 3}
+  - {fileID: 9075584519239376707, guid: ff2a290a956ad254da93c49c1a75d136, type: 3}
+  itemProbabilityTickets: 0a0000000800000003000000080000000a00000005000000080000000f00000002000000
+  doGenerateRooms: 1
+  roomGenerationProbability: 0.2
+  roomManagement: {fileID: 0}

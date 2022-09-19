@@ -19,11 +19,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject playerTemplate;
     private GameObject player;
 
-    [SerializeField] private GameObject debug;
+    [SerializeField] private GameObject debugManagement;
     [SerializeField] private bool doDebug;
 
     [SerializeField] private GameObject timeManagement;
     private TimeManager timeManager;
+
+    [SerializeField] private GameObject scoreManagement;
+    private ScoreManager scoreManager;
 
     [SerializeField] private GameObject gameOverManagement;
     private GameOverManager gameOverManager;
@@ -75,14 +78,20 @@ public class GameController : MonoBehaviour
         gameState = GameState.RUNNING;
 
         if (!doDebug)
-            debug.SetActive(false);
+            debugManagement.SetActive(false);
 
         timeManager = timeManagement.GetComponent<TimeManager>();
+        scoreManager = scoreManagement.GetComponent<ScoreManager>();
         gameOverManager = gameOverManagement.GetComponent<GameOverManager>();
         pauseManager = pauseManagement.GetComponent<PauseManager>();
         coinManager = coinManagement.GetComponent<CoinManager>();
         effectManager = effectManagement.GetComponent<EffectManager>();
         itemManager = itemManagement.GetComponent<ItemManager>();
+    }
+
+    public float GetScore()
+    {
+        return scoreManager.Score;
     }
 
     public void CollectableItemCollected(GameObject collectableItem)

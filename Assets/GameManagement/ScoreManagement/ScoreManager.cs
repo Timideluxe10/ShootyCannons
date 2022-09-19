@@ -11,6 +11,8 @@ public class ScoreManager : MonoBehaviour
     private float lastXPos; /* The last x position of the player to calculate a delta. */
     private float score;
 
+    public float Score { get => score; }
+
     // Start is called before the first frame update
     void Start()
     {

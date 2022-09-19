@@ -178,9 +178,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTemplate: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
-  debug: {fileID: 3010966200240792217}
+  debugManagement: {fileID: 3010966200240792217}
   doDebug: 0
   timeManagement: {fileID: 9089192171431829343}
+  scoreManagement: {fileID: 6207068452861163155}
   gameOverManagement: {fileID: 8646976934010946986}
   pauseManagement: {fileID: 8682626983056829999}
   coinManagement: {fileID: 2555921183964031014}
@@ -341,7 +342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3540716313166578536, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_Name
-      value: Debugger
+      value: DebugManagement
       objectReference: {fileID: 0}
     - target: {fileID: 4653931419200701263, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: m_RootOrder
@@ -388,12 +389,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
+      propertyPath: timeScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: doAutoshoot
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
+      propertyPath: minTurnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233204968092092335, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
       propertyPath: drawShootingTrajectory
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}

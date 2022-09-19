@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int points;
     private GameObject currentCannon;
     private GameObject lastCannon;
 
     private new Rigidbody rigidbody;
     private MeshRenderer meshRenderer;
 
-    public int Points { get => points; }
     public GameObject CurrentCannon { get => currentCannon; }
     public GameObject LastCannon { get => lastCannon; }
 
