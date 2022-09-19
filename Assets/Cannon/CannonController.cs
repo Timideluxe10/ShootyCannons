@@ -56,6 +56,7 @@ public class CannonController : MonoBehaviour, Generateable
         player.transform.position = transform.position + transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
         player.GetComponent<Rigidbody>().AddForce(transform.up * power * 100);
+        GameController.Instance.PlaySound(GetComponent<AudioSource>().clip, transform.position);
     }
 
     public GameObject GetCannonToGenerateFrom()

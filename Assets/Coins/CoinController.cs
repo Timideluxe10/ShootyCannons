@@ -7,19 +7,10 @@ public class CoinController : MonoBehaviour
     [SerializeField] private int value;
     [SerializeField] float rotationSpeed = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
-    }
-
-    private void FixedUpdate()
-    {
-        transform.Rotate(Vector3.forward, rotationSpeed);
+        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +19,7 @@ public class CoinController : MonoBehaviour
         if (otherGameObject.CompareTag("Player"))
         {
             GameController.Instance.CoinCollected(value);
+            GameController.Instance.PlaySound(GetComponent<AudioSource>().clip, transform.position);
             Destroy(gameObject);
         }
     }

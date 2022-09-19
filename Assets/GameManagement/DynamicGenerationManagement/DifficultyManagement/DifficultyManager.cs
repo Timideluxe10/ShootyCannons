@@ -44,21 +44,16 @@ public class DifficultyManager : MonoBehaviour
         {
             nextDifficultyStepThreshold += PointsUntilDifficultyUpdate / difficultyMultiplier;
             AdaptDifficulty();
-            Debug.Log("Adapting difficulty...");
         }
     }
 
     private void AdaptDifficulty()
     {
         ShiftProbabilityTickets(dynamicGenerationManager.CannonProbabilityTickets, minValueCannons, maxValueCannons, false);
-        Debug.Log("Cannon probabilities shifted: " + dynamicGenerationManager.CannonProbabilityTickets);
 
         ShiftProbabilityTickets(dynamicGenerationManager.CoinProbabilityTickets, minValueCoins, maxValueCoins, true);
-        Debug.Log("Coin probabilities shifted: " + dynamicGenerationManager.CoinProbabilityTickets);
 
         ShiftProbabilityTickets(roomManager.DifficultyProbabilityTickets, minValueRooms, maxValueRooms, true);
-        Debug.Log("Room probabilities shifted: " + roomManager.DifficultyProbabilityTickets);
-
     }
 
     private void ShiftProbabilityTickets(int[] probabilityTickets, int minValue, int maxValue, bool scaleInfinitely)

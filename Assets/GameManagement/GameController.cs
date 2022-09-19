@@ -43,6 +43,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject itemManagement;
     private ItemManager itemManager;
 
+    [SerializeField] private GameObject audioManagement;
+    private AudioManager audioManager;
+
 
     private float timeScaleWhenRunning;
 
@@ -87,6 +90,12 @@ public class GameController : MonoBehaviour
         coinManager = coinManagement.GetComponent<CoinManager>();
         effectManager = effectManagement.GetComponent<EffectManager>();
         itemManager = itemManagement.GetComponent<ItemManager>();
+        audioManager = audioManagement.GetComponent<AudioManager>();
+    }
+
+    public void PlaySound(AudioClip clip, Vector3 position)
+    {
+        audioManager.PlaySound(clip, position);
     }
 
     public float GetScore()

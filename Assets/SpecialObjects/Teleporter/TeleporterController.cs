@@ -12,6 +12,7 @@ public class TeleporterController : MonoBehaviour
         {
             GameObject player = other.gameObject;
             player.transform.position = exit.transform.position;
+            GameController.Instance.PlaySound(GetComponentInParent<AudioSource>().clip, transform.position);
         }
     }
 }
