@@ -8,6 +8,8 @@ public class CannonController : MonoBehaviour, Generateable
     [SerializeField] private float power;
     [SerializeField] private float timeBonus;
 
+    [SerializeField] private AudioClip audioClip;
+
     private bool isTurning = false;
     private bool isVisited = false;
 
@@ -15,11 +17,6 @@ public class CannonController : MonoBehaviour, Generateable
 
     public bool IsVisited { get => isVisited; }
     public float Power { get => power; }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -56,7 +53,7 @@ public class CannonController : MonoBehaviour, Generateable
         player.transform.position = transform.position + transform.up * 2;
         player.GetComponent<PlayerController>().OnCannonExit();
         player.GetComponent<Rigidbody>().AddForce(transform.up * power * 100);
-        GameController.Instance.PlaySound(GetComponent<AudioSource>().clip, transform.position);
+        GameController.Instance.PlaySound(audioClip, transform.position);
     }
 
     public GameObject GetCannonToGenerateFrom()

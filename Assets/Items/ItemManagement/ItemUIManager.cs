@@ -46,7 +46,7 @@ public class ItemUIManager : MonoBehaviour
         {
             GameObject itemPanel = GameObject.Instantiate(collectableItemsPanelTemplate, Vector3.zero, collectableItemsPanelTemplate.transform.rotation);
             itemPanel.transform.SetParent(collectableItemsPanelHolder.transform);
-            itemPanel.transform.position = new Vector3(0, -i * 50 + 312, 0);
+            itemPanel.transform.position = new Vector3(0, -i * 85 + 312, 0);
             collectableItemsPanels[i] = itemPanel;
             collectableItemsEffectNameTexts[i] = itemPanel.GetComponentInChildren<Text>();
         }

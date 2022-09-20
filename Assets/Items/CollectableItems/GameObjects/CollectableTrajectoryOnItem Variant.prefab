@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  effectAudioClip: {fileID: 8300000, guid: e866b0d066c5d424a8b7764942f6d41a, type: 3}
+  onCollectAudioClip: {fileID: 8300000, guid: 4b7ce52ee9dd10444962ad1acbbda247, type: 3}
 --- !u!1001 &9197922292114412159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +72,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4932700225341200250, guid: 9a1569151e7015b469f6bdb378418284, type: 3}
       propertyPath: m_Name
-      value: CollectableTrajectoryOnItem
+      value: CollectableTrajectoryOnItem Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a1569151e7015b469f6bdb378418284, type: 3}

@@ -24,7 +24,7 @@ public class TimeManager : MonoBehaviour
     {
         currentTime -= Time.deltaTime;
         UpdateTimeText();
-        if(currentTime <= 0f)
+        if(currentTime <= 0f && GameController.Instance.IsGameRunning())
         {
             GameController.Instance.ProcessGameOver(GameOverManager.GameOverCause.OUT_OF_TIME);
         }

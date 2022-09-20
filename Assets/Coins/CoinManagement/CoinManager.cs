@@ -9,6 +9,8 @@ public class CoinManager : MonoBehaviour
 
     private int coinsCollected;
 
+    public int CoinsCollected { get => coinsCollected; }
+
     public void CoinCollected(int value)
     {
         coinsCollected += value;

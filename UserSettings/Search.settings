@@ -8,7 +8,7 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
-	"last_search.785D90A9" = "Prefer"
+	"last_search.785D90A9" = "asset store"
 	"asset.785D90A9" = "True"
 	"menu.785D90A9" = "True"
 	"scene.785D90A9" = "True"
@@ -56,6 +56,7 @@ providers = {
 	}
 }
 recentSearches = [
+	"asset store"
 	"Prefer"
 	"Lighting"
 	"Tool Settings"

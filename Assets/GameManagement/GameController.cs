@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 {
     public enum GameState
     {
-        RUNNING, PAUSED
+        RUNNING, PAUSED, GAME_OVER
     }
     private GameState gameState;
 
@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour
 
     [SerializeField] private GameObject audioManagement;
     private AudioManager audioManager;
+
+    [SerializeField] private GameObject fileManagement;
+    private FileManager fileManager;
 
 
     private float timeScaleWhenRunning;
@@ -91,6 +94,32 @@ public class GameController : MonoBehaviour
         effectManager = effectManagement.GetComponent<EffectManager>();
         itemManager = itemManagement.GetComponent<ItemManager>();
         audioManager = audioManagement.GetComponent<AudioManager>();
+        fileManager = fileManagement.GetComponent<FileManager>();
+    }
+
+    public void UpdateTotalCoins()
+    {
+        fileManager.UpdateTotalCoins();
+    }
+
+    public int GetCollectedCoins()
+    {
+        return coinManager.CoinsCollected;
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
+    public void UpdateHighscore()
+    {
+        fileManager.UpdateHighscore();
+    }
+
+    public bool IsGameRunning()
+    {
+        return gameState == GameState.RUNNING;
     }
 
     public void PlaySound(AudioClip clip, Vector3 position)
@@ -147,6 +176,7 @@ public class GameController : MonoBehaviour
 
     public void ProcessGameOver(GameOverManager.GameOverCause cause)
     {
+        gameState = GameState.GAME_OVER;
         gameOverManager.ProcessGameOver(cause);
         Time.timeScale = 0f;
     }
@@ -158,6 +188,8 @@ public class GameController : MonoBehaviour
 
     public void PauseButtonPressed()
     {
+        if (gameState == GameState.GAME_OVER)
+            return;
         pauseManager.PauseButtonPressed();
     }
 

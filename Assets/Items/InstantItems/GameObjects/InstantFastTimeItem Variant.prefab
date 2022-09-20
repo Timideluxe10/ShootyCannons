@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 15
+  effectAudioClip: {fileID: 8300000, guid: 1520e7e4f1da8524d8492e7c349a916f, type: 3}
 --- !u!1001 &6105767877568091107
 PrefabInstance:
   m_ObjectHideFlags: 0

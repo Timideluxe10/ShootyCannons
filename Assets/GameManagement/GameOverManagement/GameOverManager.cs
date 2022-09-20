@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private Text gameOverMessageText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     [SerializeField] private float minDistanceToLastCannonForGameOver = 15f;
+
+    [SerializeField] private AudioClip gameOverAudioClip;
 
     private static Dictionary<GameOverCause, string> gameOverMessages;
 
@@ -42,7 +46,7 @@ public class GameOverManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CheckForCriticalPlayerPosition())
+        if (GameController.Instance.IsGameRunning() && CheckForCriticalPlayerPosition())
             GameController.Instance.ProcessGameOver(GameOverCause.PLAYER_FELL);
     }
 
@@ -63,5 +67,9 @@ public class GameOverManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         gameOverMessageText.text = gameOverMessages[cause];
+        scoreText.text = "Score: " + (int) GameController.Instance.GetScore();
+        GameController.Instance.PlaySound(gameOverAudioClip, player.transform.position);
+        GameController.Instance.UpdateHighscore();
+        GameController.Instance.UpdateTotalCoins();
     }
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  effectAudioClip: {fileID: 8300000, guid: 11b671481b1419e47a19cceae03205b8, type: 3}
+  onCollectAudioClip: {fileID: 8300000, guid: 4b7ce52ee9dd10444962ad1acbbda247, type: 3}
   force: 12
 --- !u!1001 &6956112658119442848
 PrefabInstance:

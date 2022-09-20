@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BouncepadController : MonoBehaviour
 {
+
+    [SerializeField] private AudioClip audioClip;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.gameObject.CompareTag("Player"))
         {
-            GameController.Instance.PlaySound(GetComponent<AudioSource>().clip, transform.position);
+            GameController.Instance.PlaySound(audioClip, transform.position);
         }
     }
 }

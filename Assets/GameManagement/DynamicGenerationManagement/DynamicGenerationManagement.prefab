@@ -50,8 +50,8 @@ MonoBehaviour:
   cannonTemplates:
   - {fileID: 2762399408350426952, guid: 3e2cff8f557851f4b99778b5c619c713, type: 3}
   - {fileID: 3671042525353948114, guid: 3c6dc018959b9a94fa0cedb920312511, type: 3}
-  - {fileID: 8486388495899790662, guid: c35dfe705bafd3442b089822d64e5cc5, type: 3}
   - {fileID: 3665407251020385379, guid: dc90705814d82004891f1b17c9adca21, type: 3}
+  - {fileID: 8486388495899790662, guid: c35dfe705bafd3442b089822d64e5cc5, type: 3}
   cannonProbabilityTickets: 0a000000080000000300000003000000
   doGenerateCoins: 1
   coinGenerationProbability: 0.33

@@ -14,6 +14,8 @@ public abstract class ItemController : MonoBehaviour
 
     private bool protectFromDestroy = false;
 
+    [SerializeField] private AudioClip effectAudioClip;
+
     public float MaxDuration { get => duration; }
     public bool ProtectFromDestroy { get => protectFromDestroy; set => protectFromDestroy = value; }
     public float DurationLeft { get => durationLeft; }
@@ -74,6 +76,8 @@ public abstract class ItemController : MonoBehaviour
     public void StartEffect()
     {
         GameController.Instance.OnItemUse(this);
+        if (effectAudioClip != null)
+            GameController.Instance.PlaySound(effectAudioClip, transform.position);
         effect.Start();
         isEffectActive = true;
         protectFromDestroy = true;
