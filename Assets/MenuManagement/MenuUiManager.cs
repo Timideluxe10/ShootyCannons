@@ -10,6 +10,8 @@ public class MenuUiManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI coinsTotalText;
 
+    [SerializeField] private GameObject optionsPanel;
+
     public void DisplayHighscoreText(int highscore)
     {
         highscoreText.text = "Highscore: " + highscore;
@@ -18,5 +20,10 @@ public class MenuUiManager : MonoBehaviour
     public void DisplayCoinsTotalText(int coinsTotal)
     {
         coinsTotalText.text = "" + coinsTotal;
+    }
+
+    public void ToggleOptionsPanelActive()
+    {
+        optionsPanel.SetActive(!optionsPanel.activeInHierarchy);
     }
 }

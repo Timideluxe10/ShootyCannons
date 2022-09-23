@@ -10,5 +10,8 @@ EditorBuildSettings:
     guid: cb26605874242e4448e09d0af46414da
   - enabled: 1
     path: Assets/Scenes/EndlessMode.unity
-    guid: 34607867faa56884ab123faa53088add
+    guid: b2ce090e40a496845b3d6977fa0b97a7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 373484685f828784d89a60ecd05757c9
   m_configObjects: {}

@@ -20,4 +20,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("EndlessMode", LoadSceneMode.Single);
     }
+
+    public void StartLevel(int level)
+    {
+        SceneManager.LoadScene("Level" + level, LoadSceneMode.Single);
+    }
 }
