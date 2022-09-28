@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         menuUiManager = menuUiManagement.GetComponent<MenuUiManager>();
-
+        UpdateMenuUI();
     }
 
     private void UpdateMenuUI()

@@ -1857,6 +1857,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 49601076572095643, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429676815}
+    - target: {fileID: 49601076572095643, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PauseButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 934722447533738997, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429676815}
+    - target: {fileID: 934722447533738997, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenuScene
+      objectReference: {fileID: 0}
     - target: {fileID: 1931032201190758465, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
       propertyPath: m_Name
       value: GUI
@@ -2004,6 +2020,14 @@ PrefabInstance:
     - target: {fileID: 4545015679635183476, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321101147657114974, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 429676815}
+    - target: {fileID: 6321101147657114974, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4424d81d5a0b414eb26cb462e22248d, type: 3}
