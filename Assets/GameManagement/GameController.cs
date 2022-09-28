@@ -97,6 +97,16 @@ public class GameController : MonoBehaviour
         fileManager = fileManagement.GetComponent<FileManager>();
     }
 
+    public int GetCollectedGems()
+    {
+        return coinManager.GemsCollected;
+    }
+
+    public void GemCollected()
+    {
+        coinManager.GemCollected();
+    }
+
     public void UpdateTotalCoins()
     {
         fileManager.UpdateTotalCoins();

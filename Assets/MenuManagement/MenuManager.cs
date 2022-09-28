@@ -48,7 +48,7 @@ public class MenuManager : MonoBehaviour
     {
         bool doReset = EditorUtility.DisplayDialog(
             "Are you sure?",
-            "This will reset ALL game stats, including coins, highscore and bought items. Do you want to continue?",
+            "This will reset ALL game stats, including coins, gems, highscore and bought items. Do you really want to continue?",
             "Reset",
             "Cancel");
 
@@ -57,6 +57,7 @@ public class MenuManager : MonoBehaviour
 
         PlayerPrefs.SetInt(FileManager.HIGHSCORE, 0);
         PlayerPrefs.SetInt(FileManager.COINS, 0);
+        PlayerPrefs.SetInt(FileManager.GEMS, 0);
         for(int i = 0; i < Num_Levels; ++i)
         {
             PlayerPrefs.SetInt("Level" + (i + 1), 0);

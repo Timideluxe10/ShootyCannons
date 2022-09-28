@@ -1089,6 +1089,38 @@ PrefabInstance:
       propertyPath: roomManagement
       value: 
       objectReference: {fileID: 7574221786704803061}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: doGenerateRooms
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinTemplates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinTemplates.Array.data[3]
+      value: 
+      objectReference: {fileID: 2074147136260101115, guid: 5dc92a600cea3f14a8a14ee090c17a62, type: 3}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinProbabilityTickets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinProbabilityTickets.Array.data[0]
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinProbabilityTickets.Array.data[1]
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinProbabilityTickets.Array.data[2]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: coinProbabilityTickets.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5640070247305594753, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: m_Name
       value: DynamicGenerationManagement
@@ -1485,6 +1517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238515983, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doDebug
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1518168626, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: pauseText
       value: 

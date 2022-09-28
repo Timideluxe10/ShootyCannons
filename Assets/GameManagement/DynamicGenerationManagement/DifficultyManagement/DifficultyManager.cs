@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DifficultyManager : MonoBehaviour
 {
@@ -54,6 +55,17 @@ public class DifficultyManager : MonoBehaviour
         ShiftProbabilityTickets(dynamicGenerationManager.CoinProbabilityTickets, minValueCoins, maxValueCoins, true);
 
         ShiftProbabilityTickets(roomManager.DifficultyProbabilityTickets, minValueRooms, maxValueRooms, true);
+
+        string cannons = "Cannons: ", coins = "Coins: ", rooms = "Rooms: ";
+        for (int i = 0; i < dynamicGenerationManager.CannonProbabilityTickets.Length; ++i)
+            cannons += dynamicGenerationManager.CannonProbabilityTickets[i].ToString() + " ";
+        for (int i = 0; i < dynamicGenerationManager.CoinProbabilityTickets.Length; ++i)
+            coins += dynamicGenerationManager.CoinProbabilityTickets[i].ToString() + " ";
+        for (int i = 0; i < roomManager.DifficultyProbabilityTickets.Length; ++i)
+            rooms += roomManager.DifficultyProbabilityTickets[i].ToString() + " ";
+        Debug.Log(cannons);
+        Debug.Log(coins);
+        Debug.Log(rooms);
     }
 
     private void ShiftProbabilityTickets(int[] probabilityTickets, int minValue, int maxValue, bool scaleInfinitely)
@@ -63,7 +75,7 @@ public class DifficultyManager : MonoBehaviour
         for(int i = 0; i < probabilityTickets.Length; ++i)
         {
             startIndexToShift = i;
-            if(probabilityTickets[i] >= minValue)
+            if(probabilityTickets[i] > minValue)
             {
                 break;
             }
