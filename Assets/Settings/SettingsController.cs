@@ -54,19 +54,4 @@ public class SettingsController : MonoBehaviour
         Debug.Log("Quitting");
         Application.Quit();
     }
-
-    public void ResetGameStats()
-    {
-        bool doReset = EditorUtility.DisplayDialog(
-            "Are you sure?", 
-            "This will reset ALL game stats, including coins, highscore and bought items. Do you want to continue?", 
-            "Reset", 
-            "Cancel");
-        if (doReset)
-        {
-            Debug.Log("Reset!");
-            PlayerPrefs.SetInt("Coins", 0);
-            PlayerPrefs.SetInt("Highscore", 0);
-        }
-    }
 }
