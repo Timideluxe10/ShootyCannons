@@ -1934,6 +1934,7 @@ MonoBehaviour:
   - {fileID: 3973403373712428602, guid: 58fc79f18a42b10489b4b859b2ed7f44, type: 3}
   - {fileID: 7923798070148292215, guid: 87645fc8936ae7448a458b1c43908ced, type: 3}
   - {fileID: 5563116348480489776, guid: 63b6aca1c97991442b2817dae5148cd2, type: 3}
+  - {fileID: 8203590068243194553, guid: cdec36e089115ce44aa0093f90d7a7b2, type: 3}
   difficultyProbabilityTickets: 6400000032000000000000000000000000000000
 --- !u!4 &8214840254773510136
 Transform:
@@ -2216,6 +2217,18 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1600091317936143589}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doAutoshoot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: pointsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: doDrawPositionPoints
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: scoreText
       value: 

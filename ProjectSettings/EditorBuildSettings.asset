@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: cb26605874242e4448e09d0af46414da
   - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 5c641bca507ac484aa50e65a8f27aa90
+  - enabled: 1
     path: Assets/Scenes/EndlessMode.unity
     guid: b2ce090e40a496845b3d6977fa0b97a7
   - enabled: 1
