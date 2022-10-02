@@ -19,15 +19,32 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         levelUiManager = levelUiManagement.GetComponent<LevelUiManager>();
+        GameController.Instance.GameMode_ = GameController.GameMode.LEVEL;
     }
 
     public static LevelManager Instance { get => instance; }
 
     public void OnLevelCompleted()
     {
-        PlayerPrefs.SetInt("Level" + level, 1);
-        levelUiManager.DisplayLevelCompletedUI();
+        if(!IsLevelCompleted())
+        {
+            PlayerPrefs.SetInt("Level" + level, 1);
+            int coinReward = level * 20;
+            GameController.Instance.CoinCollected(coinReward);
+            GameController.Instance.UpdateTotalCoins();
+            levelUiManager.DisplayLevelCompletedUI(coinReward);
+        }
+        else
+        {
+            levelUiManager.DisplayLevelCompletedUI();
+        }
+
         GameController.Instance.GameState_ = GameController.GameState.GAME_OVER;
         Time.timeScale = 0f;
+    }
+
+    private bool IsLevelCompleted()
+    {
+        return PlayerPrefs.GetInt("Level" + level, 0) != 0;
     }
 }

@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    public enum GameMode
+    {
+        ENDLESS, LEVEL
+    }
+
     public enum GameState
     {
         RUNNING, PAUSED, GAME_OVER
     }
+
     private GameState gameState;
+    private GameMode gameMode;
 
     private static GameController instance;
 
@@ -57,6 +64,7 @@ public class GameController : MonoBehaviour
     public GameObject Player { get => player; }
     public GameState GameState_ { get => gameState; set => gameState = value; }
     public float TimeScaleWhenRunning { get => timeScaleWhenRunning; }
+    public GameMode GameMode_ { get => gameMode; set => gameMode = value; }
 
     public PlayerController GetPlayerController()
     {

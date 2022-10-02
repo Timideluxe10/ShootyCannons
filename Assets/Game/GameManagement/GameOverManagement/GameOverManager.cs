@@ -69,7 +69,10 @@ public class GameOverManager : MonoBehaviour
         gameOverMessageText.text = gameOverMessages[cause];
         scoreText.text = "Score: " + (int) GameController.Instance.GetScore();
         GameController.Instance.PlaySound(gameOverAudioClip, player.transform.position);
-        GameController.Instance.UpdateHighscore();
-        GameController.Instance.UpdateTotalCoins();
+        if(GameController.Instance.GameMode_ == GameController.GameMode.ENDLESS)
+        {
+            GameController.Instance.UpdateHighscore();
+            GameController.Instance.UpdateTotalCoins();
+        }
     }
 }

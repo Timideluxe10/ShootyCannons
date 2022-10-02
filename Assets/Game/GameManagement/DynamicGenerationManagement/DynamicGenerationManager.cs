@@ -50,6 +50,8 @@ public class DynamicGenerationManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameController.Instance.GameMode_ = GameController.GameMode.ENDLESS;
+
         cannonAndRoomBuffer = new GameObject[cannonBufferSize];
         coinBuffer = new GameObject[cannonBufferSize];
         itemBuffer = new GameObject[cannonBufferSize];
