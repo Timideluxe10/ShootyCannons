@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class MenuManager : MonoBehaviour
 {
-    private static readonly int Num_Levels = 15;
+    private static readonly int Num_Levels = 27;
 
     [SerializeField] private GameObject menuUiManagement;
     private MenuUiManager menuUiManager;
@@ -14,6 +14,8 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         menuUiManager = menuUiManagement.GetComponent<MenuUiManager>();
+        menuUiManager.InitLevelButtons(GetLevelCompletionVariables());
+        menuUiManager.MenuManager = this;
         UpdateMenuUI();
     }
 
@@ -31,7 +33,12 @@ public class MenuManager : MonoBehaviour
 
     public void StartLevel(int level)
     {
-        SceneManager.LoadScene("Level" + level, LoadSceneMode.Single);
+        string sceneName = "Level" + level;
+        int buildIndex = SceneUtility.GetBuildIndexByScenePath(sceneName);
+        if (buildIndex >= 0)
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        else
+            Debug.Log("Scene level " + level + " does not exist yet.");
     }
 
     private int[] GetLevelCompletionVariables()

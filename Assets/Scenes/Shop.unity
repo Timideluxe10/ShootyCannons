@@ -1838,6 +1838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb340b7e14b77d489605a6f83648148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemTemplatesForSale: []
+  itemPrices: 
+  probabilityTickets: 
 --- !u!1 &1632459551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2670,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3694806156342809652, guid: 48a3a81cb997b2f4488446b332568c62, type: 3}
+      propertyPath: salesManagement
+      value: 
+      objectReference: {fileID: 4318628155385422372, guid: 26d9fc9408d48374bb5f8b245924ade0, type: 3}
     - target: {fileID: 3694806156342809652, guid: 48a3a81cb997b2f4488446b332568c62, type: 3}
       propertyPath: shopUiManagement
       value: 
