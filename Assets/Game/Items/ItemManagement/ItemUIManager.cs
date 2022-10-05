@@ -44,9 +44,9 @@ public class ItemUIManager : MonoBehaviour
 
         for (int i = 0; i < number; ++i)
         {
-            GameObject itemPanel = GameObject.Instantiate(collectableItemsPanelTemplate, Vector3.zero, collectableItemsPanelTemplate.transform.rotation);
+            GameObject itemPanel = GameObject.Instantiate(collectableItemsPanelTemplate);
             itemPanel.transform.SetParent(collectableItemsPanelHolder.transform);
-            itemPanel.transform.position = new Vector3(0, -i * 85 + 312, 0);
+            itemPanel.transform.position = new Vector3(0, -i * 60 - (i+1) * 10 - 100 + 400, 0);
             collectableItemsPanels[i] = itemPanel;
             collectableItemsEffectNameTexts[i] = itemPanel.GetComponentInChildren<Text>();
         }

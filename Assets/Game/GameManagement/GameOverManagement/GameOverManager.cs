@@ -67,7 +67,7 @@ public class GameOverManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         gameOverMessageText.text = gameOverMessages[cause];
-        scoreText.text = "Score: " + (int) GameController.Instance.GetScore();
+        scoreText.text = "Score:\n" + (int) GameController.Instance.GetScore();
         GameController.Instance.PlaySound(gameOverAudioClip, player.transform.position);
         if(GameController.Instance.GameMode_ == GameController.GameMode.ENDLESS)
         {
