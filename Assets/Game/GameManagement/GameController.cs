@@ -103,6 +103,8 @@ public class GameController : MonoBehaviour
         itemManager = itemManagement.GetComponent<ItemManager>();
         audioManager = audioManagement.GetComponent<AudioManager>();
         fileManager = fileManagement.GetComponent<FileManager>();
+
+        itemManager.CollectStartItems();
     }
 
     public int GetCollectedGems()

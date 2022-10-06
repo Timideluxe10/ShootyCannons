@@ -65,7 +65,6 @@ public class DynamicGenerationManager : MonoBehaviour
         roomManager.InitRoomsPerDifficulty();
 
         GenerateInitialGameObjects();
-
     }
 
     // Update is called once per frame

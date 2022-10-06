@@ -20,11 +20,16 @@ public abstract class ItemController : MonoBehaviour
     public bool ProtectFromDestroy { get => protectFromDestroy; set => protectFromDestroy = value; }
     public float DurationLeft { get => durationLeft; }
 
-    // Start is called before the first frame update
-    protected void Start()
+
+    private void Awake()
     {
         effect = SetEffect();
         durationLeft = duration;
+    }
+
+    // Start is called before the first frame update
+    protected void Start()
+    {
     }
 
     protected abstract Effect SetEffect();
@@ -71,7 +76,7 @@ public abstract class ItemController : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
     }
 
-    protected abstract void OnCollect();
+    public abstract void OnCollect();
 
     public void StartEffect()
     {

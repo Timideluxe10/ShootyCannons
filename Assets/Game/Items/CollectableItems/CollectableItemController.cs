@@ -6,7 +6,7 @@ public abstract class CollectableItemController : ItemController
 {
     [SerializeField] private AudioClip onCollectAudioClip;
 
-    protected override void OnCollect()
+    public override void OnCollect()
     {
         GameController.Instance.CollectableItemCollected(gameObject);
         GameController.Instance.PlaySound(onCollectAudioClip, transform.position);

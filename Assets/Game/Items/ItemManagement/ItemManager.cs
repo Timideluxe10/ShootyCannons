@@ -24,6 +24,17 @@ public class ItemManager : MonoBehaviour
         itemUIManager.InitialiseCollectedItemsPanel(maxNumberOfItemsToCollect);
     }
 
+    public void CollectStartItems()
+    {
+        InventoryManager inventoryManager = InventoryManager.Instance;
+        if (inventoryManager == null)
+            return;
+        foreach(GameObject toCollect in inventoryManager.GetItemsAsInstantiatedGameObjects())
+        {
+            Collect(toCollect);
+        }
+    }
+
     public void OnUse(ItemController item)
     {
         ItemController toRemove = null;

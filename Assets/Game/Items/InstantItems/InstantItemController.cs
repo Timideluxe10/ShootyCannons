@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InstantItemController : ItemController
 {
-    protected override void OnCollect()
+    public override void OnCollect()
     {
         StartEffect();
     }

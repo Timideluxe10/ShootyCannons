@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
 {
     private static readonly int Num_Levels = 27;
 
+    private static bool doResetInventoryDependencies = false;
+
     [SerializeField] private GameObject menuUiManagement;
     private MenuUiManager menuUiManager;
 
@@ -17,6 +19,13 @@ public class MenuManager : MonoBehaviour
         menuUiManager.InitLevelButtons(GetLevelCompletionVariables());
         menuUiManager.MenuManager = this;
         UpdateMenuUI();
+        if (doResetInventoryDependencies)
+        {
+             var invManager = InventoryManager.Instance.GetComponent<InventoryManager>();
+              invManager.ResetDependencies();
+             invManager.UpdateInventoryUI();
+        }
+        doResetInventoryDependencies = true;
     }
 
     private void UpdateMenuUI()
