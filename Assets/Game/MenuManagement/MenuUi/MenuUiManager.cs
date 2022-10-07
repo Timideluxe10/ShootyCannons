@@ -10,6 +10,8 @@ public class MenuUiManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI coinsTotalText;
 
+    [SerializeField] private TextMeshProUGUI gemsTotalText;
+
     [SerializeField] private GameObject optionsPanel;
 
     [SerializeField] private GameObject levelsPanel;
@@ -57,6 +59,11 @@ public class MenuUiManager : MonoBehaviour
     public void DisplayCoinsTotalText(int coinsTotal)
     {
         coinsTotalText.text = "" + coinsTotal;
+    }
+
+    public void DisplayGemsTotalText(int gemsTotal)
+    {
+        gemsTotalText.text = "" + gemsTotal;
     }
 
     public void ToggleOptionsPanelActive()

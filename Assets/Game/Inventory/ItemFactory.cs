@@ -26,4 +26,9 @@ public class ItemFactory : MonoBehaviour
     {
         return id == 0 ? "" : idsTogameObjectTemplates[id].name;
     }
+
+    public List<int> GetValidIds()
+    {
+        return new List<int>(idsTogameObjectTemplates.Keys);
+    }
 }

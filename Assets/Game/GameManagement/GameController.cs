@@ -104,7 +104,8 @@ public class GameController : MonoBehaviour
         audioManager = audioManagement.GetComponent<AudioManager>();
         fileManager = fileManagement.GetComponent<FileManager>();
 
-        itemManager.CollectStartItems();
+        if(gameMode == GameMode.ENDLESS)
+            itemManager.CollectStartItems();
     }
 
     public int GetCollectedGems()

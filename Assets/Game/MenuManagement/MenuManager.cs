@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
         if (doResetInventoryDependencies)
         {
              var invManager = InventoryManager.Instance.GetComponent<InventoryManager>();
-              invManager.ResetDependencies();
+             invManager.ResetDependencies();
              invManager.UpdateInventoryUI();
         }
         doResetInventoryDependencies = true;
@@ -32,6 +32,7 @@ public class MenuManager : MonoBehaviour
     {
         menuUiManager.DisplayHighscoreText(PlayerPrefs.GetInt(FileManager.HIGHSCORE, 0));
         menuUiManager.DisplayCoinsTotalText(PlayerPrefs.GetInt(FileManager.COINS, 0));
+        menuUiManager.DisplayGemsTotalText(PlayerPrefs.GetInt(FileManager.GEMS, 0));
         menuUiManager.ColorLevelButtons(GetLevelCompletionVariables());
     }
 
@@ -74,11 +75,25 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetInt(FileManager.HIGHSCORE, 0);
         PlayerPrefs.SetInt(FileManager.COINS, 0);
         PlayerPrefs.SetInt(FileManager.GEMS, 0);
-        for(int i = 0; i < Num_Levels; ++i)
+        ResetCompletedLevels();
+        ResetInventoryItems();
+        UpdateMenuUI();
+    }
+
+    private void ResetCompletedLevels()
+    {
+        for (int i = 0; i < Num_Levels; ++i)
         {
             PlayerPrefs.SetInt("Level" + (i + 1), 0);
         }
-        UpdateMenuUI();
+    }
+
+    private void ResetInventoryItems()
+    {
+        foreach(int itemId in InventoryManager.Instance.GetValidItemIds())
+        {
+            PlayerPrefs.SetInt("Item" + itemId, 0);
+        }
     }
 
     public void LoadShopScene()

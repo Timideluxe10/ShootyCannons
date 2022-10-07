@@ -53,16 +53,18 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        /* Test */
-        Add(1, 5);
-        Add(2, 3);
-        Add(3, 1);
-        Add(4, 2);
-        Add(5, 3);
-        Add(6, 3);
-        Add(7, 3);
-        Add(8, 3);
+        LoadItems();
         UpdateInventoryUI();
+    }
+
+    private void LoadItems()
+    {
+        foreach(int itemId in itemFactory.GetValidIds())
+        {
+            int itemAmount = PlayerPrefs.GetInt("Item" + itemId, 0);
+            if(itemAmount > 0)
+                Add(itemId, itemAmount);
+        }
     }
 
     public void Add(int itemIdToCollect, int amount)
@@ -144,10 +146,16 @@ public class InventoryManager : MonoBehaviour
             {
                 GameObject template = itemFactory.GetGameObjectTemplate(equippedItemIds[i]);
                 instantiatedItems.Add(GameObject.Instantiate(template, new Vector3(-100, 0, 0), template.transform.rotation));
+                PlayerPrefs.SetInt("Item" + equippedItemIds[i], PlayerPrefs.GetInt("Item" + equippedItemIds[i]) - 1);
                 equippedItemIds[i] = 0;
             }
         }
         return instantiatedItems;
+    }
+
+    public List<int> GetValidItemIds()
+    {
+        return itemFactory.GetValidIds();
     }
 
     public void ResetDependencies()
