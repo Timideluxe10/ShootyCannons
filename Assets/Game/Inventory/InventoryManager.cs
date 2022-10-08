@@ -158,6 +158,11 @@ public class InventoryManager : MonoBehaviour
         return itemFactory.GetValidIds();
     }
 
+    public string GetGameObjectName(int itemId)
+    {
+        return itemFactory.GetGameObjectName(itemId);
+    }
+
     public void ResetDependencies()
     {
         inventoryUiManager.ResetDependencies();
