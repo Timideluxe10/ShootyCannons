@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     {
         if(!IsLevelCompleted())
         {
+            print("Level completed for the first time.");
             PlayerPrefs.SetInt("Level" + level, 1);
             int coinReward = level * 20;
             GameController.Instance.CoinCollected(coinReward);

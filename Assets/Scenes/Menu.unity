@@ -938,6 +938,10 @@ PrefabInstance:
       propertyPath: levelButtons.Array.data[14]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5957835072885851888, guid: 34e2f9fea553c9d48be1cb2c250c55c2, type: 3}
+      propertyPath: levelIncompleteButtonSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9ea50ae657aa1f4faa3e5c2f37a344e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e2f9fea553c9d48be1cb2c250c55c2, type: 3}
 --- !u!1001 &7446331357564561869

@@ -16,6 +16,7 @@ public class MenuUiManager : MonoBehaviour
 
     [SerializeField] private GameObject levelsPanel;
     [SerializeField] private Button levelButtonTemplate;
+    [SerializeField] private Sprite levelIncompleteButtonSprite;
     [SerializeField] private Sprite levelCompleteButtonSprite;
     [SerializeField] private int numLevels;
     private Button[] levelButtons;
@@ -81,6 +82,8 @@ public class MenuUiManager : MonoBehaviour
             {
                 levelButtons[i].GetComponentInChildren<Image>().sprite = levelCompleteButtonSprite;
             }
+            else
+                levelButtons[i].GetComponentInChildren<Image>().sprite = levelIncompleteButtonSprite;
         }
     }
 }
