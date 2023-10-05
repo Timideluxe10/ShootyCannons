@@ -100,4 +100,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("Shop", LoadSceneMode.Single);
     }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetString("lastLoginTime", System.DateTime.Now.ToBinary().ToString());
+    }
 }

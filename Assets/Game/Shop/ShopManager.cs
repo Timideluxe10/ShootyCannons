@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ShopManager : MonoBehaviour
 {
@@ -18,19 +19,53 @@ public class ShopManager : MonoBehaviour
 
     private SalesManager.Sale[] dynamicSales;
 
+    private DateTime currentDate, oldDate;
+
     private void Start()
     {
-        PlayerPrefs.SetInt("Coins", 1000); /* For testing */
-
-        secondsUntilShopReset = shopRefreshTimeInSeconds;
-
         shopUiManager = shopUiManagement.GetComponent<ShopUiManager>();
         salesManager = salesManagement.GetComponent<SalesManager>();
 
         dynamicSales = new SalesManager.Sale[numberOfDynamicSales];
 
         UpdateCurrencyUI();
-        GenerateNewSales();
+
+        ManageResetTimer();
+    }
+
+    private void ManageResetTimer()
+    {
+        currentDate = System.DateTime.Now;
+
+        string lastLoginTime = PlayerPrefs.GetString("lastLoginTime");
+        long binaryTime = (lastLoginTime == null || lastLoginTime == "") ? 0 : Convert.ToInt64(lastLoginTime);
+        oldDate = (binaryTime == 0) ? DateTime.MinValue : DateTime.FromBinary(binaryTime);
+
+        TimeSpan difference = currentDate.Subtract(oldDate);
+        int differenceInSeconds = (int)difference.TotalSeconds;
+
+        print("difference in seconds: " + differenceInSeconds);
+
+        if (differenceInSeconds >= shopRefreshTimeInSeconds)
+        {
+            GenerateNewSales();
+            secondsUntilShopReset = shopRefreshTimeInSeconds;
+        }
+        else
+        {
+            secondsUntilShopReset = shopRefreshTimeInSeconds - differenceInSeconds;
+            for (int i = 0; i < dynamicSales.Length; ++i)
+            {
+                dynamicSales[i] = new SalesManager.Sale(
+                    PlayerPrefs.GetInt("shopItemId" + i, 0),
+                    PlayerPrefs.GetInt("shopItemAmount" + i, 0),
+                    PlayerPrefs.GetInt("shopItemPrice" + i, 0)
+                );
+            }
+            UpdateDynamicSalesUI();
+        }
+
+        print("Seconds until reset:" + secondsUntilShopReset);
     }
 
     private void Update()
@@ -48,7 +83,11 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < dynamicSales.Length; ++i)
         {
             dynamicSales[i] = salesManager.GenerateSale();
+            PlayerPrefs.SetInt("shopItemId" + i, dynamicSales[i].ItemId);
+            PlayerPrefs.SetInt("shopItemAmount" + i, dynamicSales[i].ItemAmount);
+            PlayerPrefs.SetInt("shopItemPrice" + i, dynamicSales[i].Price);
         }
+        PlayerPrefs.SetString("lastLoginTime", System.DateTime.Now.ToBinary().ToString());
         UpdateDynamicSalesUI();
     }
 
