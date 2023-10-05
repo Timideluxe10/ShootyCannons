@@ -104,7 +104,20 @@ public class ShopManager : MonoBehaviour
 
         UpdateCurrencyUI();
         shopUiManager.OnItemBought(indexOfSale);
+
+        GenerateNewSale(indexOfSale); // Generating a new sale overwrites "onItemBought" functionality and UI. Open design choice if leaving like this.
     }
+
+    private void GenerateNewSale(int indexOfSale)
+    {
+        dynamicSales[indexOfSale] = salesManager.GenerateSale();
+        PlayerPrefs.SetInt("shopItemId" + indexOfSale, dynamicSales[indexOfSale].ItemId);
+        PlayerPrefs.SetInt("shopItemAmount" + indexOfSale, dynamicSales[indexOfSale].ItemAmount);
+        PlayerPrefs.SetInt("shopItemPrice" + indexOfSale, dynamicSales[indexOfSale].Price);
+        PlayerPrefs.SetString("lastLoginTime", System.DateTime.Now.ToBinary().ToString());
+        UpdateDynamicSalesUI();
+    }
+
 
     public void UpdateDynamicSalesUI()
     {
