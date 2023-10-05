@@ -74,5 +74,9 @@ public class GameOverManager : MonoBehaviour
             GameController.Instance.UpdateHighscore();
             GameController.Instance.UpdateTotalCoins();
         }
+        else //Level Mode
+        {
+            scoreText.text = "";
+        }
     }
 }
