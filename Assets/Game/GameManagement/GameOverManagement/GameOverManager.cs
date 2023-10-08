@@ -71,8 +71,8 @@ public class GameOverManager : MonoBehaviour
         GameController.Instance.PlaySound(gameOverAudioClip, player.transform.position);
         if(GameController.Instance.GameMode_ == GameController.GameMode.ENDLESS)
         {
-            GameController.Instance.UpdateHighscore();
             GameController.Instance.UpdateTotalCoins();
+            GameController.Instance.UpdateHighscore();
         }
         else //Level Mode
         {

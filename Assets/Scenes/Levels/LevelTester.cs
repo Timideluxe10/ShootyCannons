@@ -6,7 +6,9 @@ public class LevelTester : MonoBehaviour
 {
     private enum PlayerSpawnPosition
     {
-        START, LAST_JUMP, FIXED_JUMP
+        START /* Normal player starting position (start of level). */, 
+        LAST_JUMP /* Player spawn pos. gets set to second to last cannon (to test the last jump). */,
+        FIXED_JUMP /* Player spawn pos. gets set to specific cannon (of index 'indexFixedJump'). */
     }
 
     private GameObject player;
@@ -35,14 +37,15 @@ public class LevelTester : MonoBehaviour
         switch (playerSpawnPosition)
         {
             case PlayerSpawnPosition.START: 
-                return;
+                return;  /* Leave setting player spawn to general management script. */
             case PlayerSpawnPosition.LAST_JUMP:
                 position = cannons[cannons.Count - 2].transform.position + new Vector3(0, 2, 0);
                 break;
             case PlayerSpawnPosition.FIXED_JUMP:
                 position = cannons[indexFixedJump].transform.position + new Vector3(0, 2, 0);
                 break;
-            default: return; /* Should never happen. */
+            default: 
+                return; /* Should never happen. */
         }
 
         player.transform.position = position;
