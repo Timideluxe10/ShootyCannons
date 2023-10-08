@@ -99,13 +99,14 @@ public class ShopManager : MonoBehaviour
         {
             return; /* Player doesn't have enough coins. TODO: Disable button beforhand or play sound. */
         }
-        PlayerPrefs.SetInt(FileManager.COINS, playerCoins - sale.Price);
+        PlayerPrefs.SetInt(FileManager.COINS, playerCoins - sale.Price); /* Update player coins in file. */
+        PlayerPrefs.SetInt("Item" + sale.ItemId, PlayerPrefs.GetInt("Item" + sale.ItemId) + sale.ItemAmount); /* Update number of items in file. */
         InventoryManager.Instance.Add(sale.ItemId, sale.ItemAmount);
 
         UpdateCurrencyUI();
         shopUiManager.OnItemBought(indexOfSale);
 
-        GenerateNewSale(indexOfSale); // Generating a new sale overwrites "onItemBought" functionality and UI. Open design choice if leaving like this.
+        GenerateNewSale(indexOfSale); /* Generating a new sale overwrites "onItemBought" functionality and UI. Open design choice if leaving like this. */
     }
 
     private void GenerateNewSale(int indexOfSale)

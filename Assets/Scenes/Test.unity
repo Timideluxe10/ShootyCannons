@@ -185,9 +185,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e2202848f0cfb4fb952db49def6333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1723988503}
-  debug: {fileID: 1563762692}
+  playerTemplate: {fileID: 0}
+  debugManagement: {fileID: 0}
   doDebug: 1
+  timeManagement: {fileID: 0}
+  scoreManagement: {fileID: 0}
+  gameOverManagement: {fileID: 0}
+  pauseManagement: {fileID: 0}
+  coinManagement: {fileID: 0}
+  effectManagement: {fileID: 0}
+  itemManagement: {fileID: 0}
+  audioManagement: {fileID: 0}
+  fileManagement: {fileID: 0}
 --- !u!1001 &245975312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -780,11 +789,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8486388495899790661, guid: c35dfe705bafd3442b089822d64e5cc5, type: 3}
   m_PrefabInstance: {fileID: 1487496496}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1563762692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3540716313166578536, guid: ba9edc827255a1340b57dc2d30f8c0b1, type: 3}
-  m_PrefabInstance: {fileID: 7406577968904540062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1718006692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -846,11 +850,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3671042525353948113, guid: 3c6dc018959b9a94fa0cedb920312511, type: 3}
   m_PrefabInstance: {fileID: 1718006692}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1723988503 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1276784876646818443, guid: 9a199ad13d4080a4a90c28870d4c2f7c, type: 3}
-  m_PrefabInstance: {fileID: 1276784877163691092}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1746154991
 PrefabInstance:

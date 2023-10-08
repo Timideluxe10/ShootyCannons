@@ -29,7 +29,7 @@ public class ItemManager : MonoBehaviour
         InventoryManager inventoryManager = InventoryManager.Instance;
         if (inventoryManager == null)
             return;
-        foreach(GameObject toCollect in inventoryManager.GetItemsAsInstantiatedGameObjects())
+        foreach(GameObject toCollect in inventoryManager.GetEquippedItemsAsInstantiatedGameObjects())
         {
             Collect(toCollect);
         }

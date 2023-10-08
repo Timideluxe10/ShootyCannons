@@ -74,7 +74,7 @@ public class InventoryManager : MonoBehaviour
             if(itemIdToCollect == itemSlot.ItemId)
             {
                 itemSlot.Amount += amount;
-                return; ;
+                return;
             }
         }
         itemSlots.Add(new ItemSlot(itemIdToCollect, amount));
@@ -137,7 +137,11 @@ public class InventoryManager : MonoBehaviour
         inventoryUiManager.UpdateUI(itemSlots, equippedItemIds);
     }
 
-    public List<GameObject> GetItemsAsInstantiatedGameObjects()
+    /*
+     * Instantiates and returns equipped items (saved as ids) as game objects.
+     * Also removes the item ids from local save (equippedItemIds array) and from file save (PlayerPrefs). 
+     */
+    public List<GameObject> GetEquippedItemsAsInstantiatedGameObjects()
     {
         List<GameObject> instantiatedItems = new List<GameObject>();
         for(int i = 0; i < equippedItemIds.Length; ++i)
