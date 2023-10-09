@@ -8,4 +8,9 @@ public class CollectableGravityOffItem : CollectableItemController
     {
         return new GravityOff();
     }
+
+    public override string GetName()
+    {
+        return "Gravity Off";
+    }
 }

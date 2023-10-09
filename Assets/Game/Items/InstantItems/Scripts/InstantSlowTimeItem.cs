@@ -8,4 +8,9 @@ public class InstantSlowTimeItem : InstantItemController
     {
         return new SlowTime();
     }
+    public override string GetName()
+    {
+        return "Slow Motion";
+    }
+
 }

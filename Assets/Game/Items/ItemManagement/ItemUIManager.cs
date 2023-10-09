@@ -59,7 +59,7 @@ public class ItemUIManager : MonoBehaviour
         for (int i = 0; i < collectableItemsPanels.Length; ++i)
         {
             CollectableItemController item = collectedItems[i];
-            collectableItemsEffectNameTexts[i].text = item == null ? "" : item.GetEffectName();
+            collectableItemsEffectNameTexts[i].text = item == null ? "" : item.GetName();
         }
     }
 
@@ -72,7 +72,7 @@ public class ItemUIManager : MonoBehaviour
                 break;
             this.activeItems[count] = itemController;
             activeItemsSliders[count].maxValue = itemController.MaxDuration;
-            activeItemsTexts[count].text = itemController.GetEffectName();
+            activeItemsTexts[count].text = itemController.GetName();
             activeItemsPanels[count].SetActive(true);
             ++count;
         }

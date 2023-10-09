@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     }
 
     private GameState gameState;
-    private GameMode gameMode;
+    private GameMode gameMode = GameMode.LEVEL; /* Standard value has to stay LEVEL to not load items into level start. */
 
     private static GameController instance;
 

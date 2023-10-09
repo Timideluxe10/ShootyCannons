@@ -24,7 +24,8 @@ public class ItemFactory : MonoBehaviour
 
     public string GetGameObjectName(int id)
     {
-        return id == 0 ? "" : idsTogameObjectTemplates[id].name;
+        // return id == 0 ? "" : idsTogameObjectTemplates[id].name;
+        return id == 0 ? "" : idsTogameObjectTemplates[id].GetComponent<ItemController>().GetName();
     }
 
     public List<int> GetValidIds()

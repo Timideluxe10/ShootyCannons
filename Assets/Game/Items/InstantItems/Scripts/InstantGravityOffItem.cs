@@ -8,4 +8,9 @@ public class InstantGravityOffItem : InstantItemController
     {
         return new GravityOff();
     }
+    public override string GetName()
+    {
+        return "Gravity Off";
+    }
+
 }

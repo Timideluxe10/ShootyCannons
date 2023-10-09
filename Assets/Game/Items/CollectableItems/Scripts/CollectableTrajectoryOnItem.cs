@@ -8,4 +8,10 @@ public class CollectableTrajectoryOnItem : CollectableItemController
     {
         return new TrajectoryOn();
     }
+
+    public override string GetName()
+    {
+        return "Aim Assist";
+    }
+
 }

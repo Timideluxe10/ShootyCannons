@@ -16,11 +16,6 @@ public class Darkness : Effect
         lightObject.SetActive(true);
     }
 
-    public override string GetName()
-    {
-        return "Darkness";
-    }
-
     public override EffectType GetEffectType()
     {
         return EffectType.LIGHT;

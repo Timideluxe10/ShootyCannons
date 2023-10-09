@@ -13,10 +13,6 @@ public class SlowTime : Effect
     {
         GameController.Instance.SetTimeScale(1f);
     }
-    public override string GetName()
-    {
-        return "Slow Time";
-    }
     public override EffectType GetEffectType()
     {
         return EffectType.TIME;

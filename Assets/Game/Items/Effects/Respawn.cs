@@ -18,10 +18,6 @@ public class Respawn : Effect
     {
         return;
     }
-    public override string GetName()
-    {
-        return "Respawn";
-    }
     public override EffectType GetEffectType()
     {
         return EffectType.INSTANT;

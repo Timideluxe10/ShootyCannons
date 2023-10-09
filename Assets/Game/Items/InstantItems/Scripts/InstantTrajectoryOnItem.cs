@@ -8,4 +8,9 @@ public class InstantTrajectoryOnItem : InstantItemController
     {
         return new TrajectoryOn();
     }
+    public override string GetName()
+    {
+        return "Aim Assist";
+    }
+
 }

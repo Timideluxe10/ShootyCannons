@@ -39,11 +39,6 @@ public abstract class ItemController : MonoBehaviour
         return effect.GetEffectType();
     }
 
-    public string GetEffectName()
-    {
-        return effect.GetName();
-    }
-
     // Update is called once per frame
     protected void Update()
     {
@@ -94,4 +89,6 @@ public abstract class ItemController : MonoBehaviour
         effect.Stop();
         GameObject.Destroy(gameObject);
     }
+
+    public abstract string GetName();
 }

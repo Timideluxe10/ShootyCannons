@@ -8,4 +8,10 @@ public class CollectableRespawnItem : CollectableItemController
     {
         return new Respawn();
     }
+
+    public override string GetName()
+    {
+        return "Respawn";
+    }
+
 }

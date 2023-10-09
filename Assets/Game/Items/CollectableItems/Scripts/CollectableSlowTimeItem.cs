@@ -8,4 +8,10 @@ public class CollectableSlowTimeItem : CollectableItemController
     {
         return new SlowTime();
     }
+
+    public override string GetName()
+    {
+        return "Slow Motion";
+    }
+
 }

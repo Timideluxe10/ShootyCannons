@@ -10,4 +10,10 @@ public class CollectableJumpItem : CollectableItemController
     {
         return new Jump(force);
     }
+
+    public override string GetName()
+    {
+        return "Jump";
+    }
+
 }

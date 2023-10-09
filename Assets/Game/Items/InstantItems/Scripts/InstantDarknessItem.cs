@@ -8,4 +8,9 @@ public class InstantDarknessItem : InstantItemController
     {
         return new Darkness();
     }
+    public override string GetName()
+    {
+        return "Darkness";
+    }
+
 }

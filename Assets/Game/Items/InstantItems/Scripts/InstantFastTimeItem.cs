@@ -8,4 +8,9 @@ public class InstantFastTimeItem : InstantItemController
     {
         return new FastTime();
     }
+    public override string GetName()
+    {
+        return "Time Lapse";
+    }
+
 }

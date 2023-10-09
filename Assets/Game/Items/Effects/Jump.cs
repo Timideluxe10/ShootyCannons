@@ -26,10 +26,7 @@ public class Jump : Effect
     {
         return;
     }
-    public override string GetName()
-    {
-        return "Jump";
-    }
+
     public override EffectType GetEffectType()
     {
         return EffectType.INSTANT;
