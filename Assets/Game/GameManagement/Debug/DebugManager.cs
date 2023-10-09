@@ -112,6 +112,7 @@ public class DebugManager : MonoBehaviour
             if (Physics.Raycast(start, direction, out raycastHit, direction.magnitude))
             {
                 GameObject hitObject = raycastHit.collider.gameObject;
+                /* if (!hitObject.CompareTag("Cannon")) return false; (to avoid walls, doesn't work because raycasts are slightly inaccurate) */
                 if (hitObject.CompareTag("Cannon") && !hitObject.GetComponent<CannonController>().IsVisited)
                 {
                     return true;
@@ -138,6 +139,7 @@ public class DebugManager : MonoBehaviour
             sphere.transform.localScale = new Vector3(.2f, .2f, .2f);
             sphere.transform.position = point;
             sphere.transform.SetParent(transform);
+            sphere.GetComponent<SphereCollider>().enabled = false;
             trajectorySpheres.Add(sphere);
         }
     }

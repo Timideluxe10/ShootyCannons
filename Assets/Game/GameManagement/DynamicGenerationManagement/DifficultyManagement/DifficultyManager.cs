@@ -52,10 +52,11 @@ public class DifficultyManager : MonoBehaviour
     {
         ShiftProbabilityTickets(dynamicGenerationManager.CannonProbabilityTickets, minValueCannons, maxValueCannons, false);
 
-        ShiftProbabilityTickets(dynamicGenerationManager.CoinProbabilityTickets, minValueCoins, maxValueCoins, true);
+        ShiftProbabilityTickets(dynamicGenerationManager.CoinProbabilityTickets, minValueCoins, maxValueCoins, false);
 
         ShiftProbabilityTickets(roomManager.DifficultyProbabilityTickets, minValueRooms, maxValueRooms, true);
 
+        /* DEBUG */
         string cannons = "Cannons: ", coins = "Coins: ", rooms = "Rooms: ";
         for (int i = 0; i < dynamicGenerationManager.CannonProbabilityTickets.Length; ++i)
             cannons += dynamicGenerationManager.CannonProbabilityTickets[i].ToString() + " ";

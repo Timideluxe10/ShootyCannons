@@ -1265,9 +1265,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
+      propertyPath: maxValueCoins
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
+      propertyPath: minValueCoins
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
       propertyPath: roomManagement
       value: 
       objectReference: {fileID: 7574221786704803061}
+    - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
+      propertyPath: maxValueCannons
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
+      propertyPath: minValueCannons
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
+      propertyPath: difficultyMultiplier
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4284451987049432523, guid: 92cfe5f217b6e2741b925b925a3b8137, type: 3}
       propertyPath: dynamicGenerationManagement
       value: 
@@ -1406,6 +1426,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: roomGenerationProbability
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: coinTemplates.Array.data[3]
       value: 
       objectReference: {fileID: 2074147136260101115, guid: 5dc92a600cea3f14a8a14ee090c17a62, type: 3}
@@ -1415,19 +1439,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: coinProbabilityTickets.Array.data[0]
-      value: 120
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: coinProbabilityTickets.Array.data[1]
-      value: 24
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: coinProbabilityTickets.Array.data[2]
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: coinProbabilityTickets.Array.data[3]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: cannonProbabilityTickets.Array.data[0]
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: cannonProbabilityTickets.Array.data[1]
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: cannonProbabilityTickets.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834482053737453184, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
+      propertyPath: cannonProbabilityTickets.Array.data[3]
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5640070247305594753, guid: a9c5e4e5d2034a54bae3a4af41fe1da6, type: 3}
       propertyPath: m_Name
@@ -1767,7 +1807,16 @@ MonoBehaviour:
   - {fileID: 7923798070148292215, guid: 87645fc8936ae7448a458b1c43908ced, type: 3}
   - {fileID: 5563116348480489776, guid: 63b6aca1c97991442b2817dae5148cd2, type: 3}
   - {fileID: 8203590068243194553, guid: cdec36e089115ce44aa0093f90d7a7b2, type: 3}
-  difficultyProbabilityTickets: 6400000032000000000000000000000000000000
+  - {fileID: 7809527951440738251, guid: 77da9efb53ad2b146943c40cb78771d3, type: 3}
+  - {fileID: 4573114347336053384, guid: 2023a90c50b4aff40ac4d6da7051b4a2, type: 3}
+  - {fileID: 2153421261280688127, guid: cf4222f2b2d8aa64fab2617d1445daa1, type: 3}
+  - {fileID: 8558051012506726645, guid: bf0abf48489271d45a84726f30d77e9b, type: 3}
+  - {fileID: 3270658245258509256, guid: a08f61422625cd44288caae79a93680d, type: 3}
+  - {fileID: 117302241244836898, guid: ba01b5a317bcfeb4783814c890e053a5, type: 3}
+  - {fileID: 6105969039700645343, guid: 22bcfc6cc9efdcb46846ca9e73aa588a, type: 3}
+  - {fileID: 2301079767277246295, guid: 7d0e93db0d76e54498795fab238c4d7c, type: 3}
+  - {fileID: 6515659026691864926, guid: 49aa9c799bbfa8f48888f4d3b49f0275, type: 3}
+  difficultyProbabilityTickets: 640000001e000000050000000000000000000000
 --- !u!4 &8214840254773510136
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,7 +2100,7 @@ PrefabInstance:
       objectReference: {fileID: 2623586952779146813}
     - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: doAutoshoot
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: pointsPerSecond
@@ -2059,6 +2108,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
       propertyPath: doDrawPositionPoints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7685400702594229854, guid: 54c20e576f14728448de7dd756408a43, type: 3}
+      propertyPath: drawShootingTrajectory
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8631089359522649669, guid: 54c20e576f14728448de7dd756408a43, type: 3}
