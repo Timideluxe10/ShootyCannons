@@ -40,6 +40,7 @@ public class DifficultyManager : MonoBehaviour
     {
         if (!isActive)
             return;
+
         float playerScore = GameController.Instance.GetScore();
         if(playerScore > nextDifficultyStepThreshold)
         {
@@ -90,6 +91,8 @@ public class DifficultyManager : MonoBehaviour
             return;
         }
 
+
+        /* Shift probability tickets to next entries while not surpassing maxValue on an entry. */
         int ticketsToShift = (probabilityTickets[startIndexToShift] - 2 < minValue ? 1 : 2);
         probabilityTickets[startIndexToShift] -= ticketsToShift;
 
