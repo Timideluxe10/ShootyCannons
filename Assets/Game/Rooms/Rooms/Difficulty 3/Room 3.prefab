@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 3
-  probabilityTickets: 100
+  probabilityTickets: 40
   lastCannon: {fileID: 8588647474128835596}
 --- !u!1001 &212992995467441258
 PrefabInstance:

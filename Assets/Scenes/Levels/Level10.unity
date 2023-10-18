@@ -234,7 +234,7 @@ PrefabInstance:
     - target: {fileID: 2658169920076063108, guid: 7c8e906e591a00e47bdf46f6017d60b6, type: 3}
       propertyPath: mountedCannonTemplate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3671042525353948114, guid: 3c6dc018959b9a94fa0cedb920312511, type: 3}
     - target: {fileID: 3901566578771449756, guid: 7c8e906e591a00e47bdf46f6017d60b6, type: 3}
       propertyPath: m_Name
       value: CannonMover (3)
@@ -1311,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 2658169920076063108, guid: 7c8e906e591a00e47bdf46f6017d60b6, type: 3}
       propertyPath: mountedCannonTemplate
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3671042525353948114, guid: 3c6dc018959b9a94fa0cedb920312511, type: 3}
     - target: {fileID: 3901566578771449756, guid: 7c8e906e591a00e47bdf46f6017d60b6, type: 3}
       propertyPath: m_Name
       value: CannonMover (2)

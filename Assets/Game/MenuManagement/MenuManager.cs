@@ -34,6 +34,7 @@ public class MenuManager : MonoBehaviour
         menuUiManager.DisplayCoinsTotalText(PlayerPrefs.GetInt(FileManager.COINS, 0));
         menuUiManager.DisplayGemsTotalText(PlayerPrefs.GetInt(FileManager.GEMS, 0));
         menuUiManager.ColorLevelButtons(GetLevelCompletionVariables());
+        // InventoryManager.Instance.UpdateInventoryUI(); //TODO: Fix inventory UI not resetting (code on the left leads to errors).
     }
 
     public void StartEndlessMode()
